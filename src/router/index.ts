@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/home/home.vue'),
                 meta: {
                     name: '首页',
-                    icon: ''
+                    icon: 'house'
                 }
             }, {
                 path: 'theme',
@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/theme/theme.vue'),
                 meta: {
                     name: '主题管理',
-                    icon: ''
+                    icon: 'mostly-cloudy'
                 }
             }, {
                 path: 'table',
@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/table/table.vue'),
                 meta: {
                     name: '表格管理',
-                    icon: ''
+                    icon: 'tickets'
                 }
             }, {
                 path: 'router',
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/router/router.vue'),
                 meta: {
                     name: '路由管理',
-                    icon: ''
+                    icon: 'sort'
                 }
             }, {
                 path: 'international',
@@ -47,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/international/international.vue'),
                 meta: {
                     name: '国际化',
-                    icon: ''
+                    icon: 'help'
                 }
             }, {
                 path: 'micro',
@@ -55,7 +55,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/micro/micro.vue'),
                 meta: {
                     name: '微前端',
-                    icon: ''
+                    icon: 'grid'
                 }
             }
         ]
