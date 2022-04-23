@@ -2,9 +2,9 @@
   <div class="menu-container">
     <el-menu
       :collapse="state.isSidebarNavCollapse"
-      text-color="#eee"
-      active-text-color="#ffd04b"
-      background-color="#304156"
+      text-color="#a4a4a4"
+      active-text-color="#fff"
+      background-color="#191a23"
       :default-active="state.currentMenu"
       class="theme-bg"
       id="menu"
@@ -20,7 +20,9 @@
             v-if="!v.meta.hide"
           >
             <template v-slot:title>
-              <i class="iconfont theme-color" :class="v.meta.icon"></i>
+              <el-icon>
+                <component class="iconfont theme-color" :is="v.meta.icon" />
+              </el-icon>
               <span class="theme-color">{{ v.meta.name }}</span>
             </template>
             <el-menu-item-group>
@@ -37,7 +39,9 @@
             @click="navigateToRoute(v.name)"
             class="theme-bg"
           >
-            <i class="iconfont theme-color" :class="v.meta.icon"></i>
+            <el-icon>
+              <component class="iconfont theme-color" :is="v.meta.icon" />
+            </el-icon>
             <span class="theme-color">{{ v.meta.name }}</span>
           </el-menu-item>
         </div>
@@ -53,10 +57,10 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   name: "my-menu",
   props: {
-      menuList: {
-          type: Array,
-          default: () => []
-      }
+    menuList: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup(props: any) {
     let router = useRouter();
@@ -68,7 +72,7 @@ export default defineComponent({
     let state = reactive({
       menuList: props.menuList,
       isSidebarNavCollapse: ref(false),
-      currentMenu: ''
+      currentMenu: "home",
     });
     return {
       navigateToRoute,
@@ -87,7 +91,11 @@ export default defineComponent({
   left: 0;
 
   .el-menu {
-      height: 100%;
+    height: 100%;
+
+    .is-active {
+      background-color: #409eff;
+    }
   }
 }
 </style>

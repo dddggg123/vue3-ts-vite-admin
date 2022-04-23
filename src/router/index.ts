@@ -1,4 +1,5 @@
-import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import store from "../store/index";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -56,6 +57,62 @@ const routes: Array<RouteRecordRaw> = [
                 meta: {
                     name: '微前端',
                     icon: 'grid'
+                }
+            }, {
+                path: 'contact',
+                name: 'contact',
+                component: () => import('@/pages/contact/contact.vue'),
+                meta: {
+                    name: '联系我们',
+                    icon: 'phone'
+                }
+            }, {
+                path: 'map',
+                name: 'map',
+                component: () => import('@/pages/map/map.vue'),
+                meta: {
+                    name: '地图',
+                    icon: 'map-location'
+                }
+            }, {
+                path: 'editor',
+                name: 'editor',
+                component: () => import('@/pages/editor/editor.vue'),
+                meta: {
+                    name: '富文本编辑器',
+                    icon: 'reading'
+                }
+            }, {
+                path: 'iframe',
+                name: 'iframe',
+                component: () => import('@/pages/iframe/iframe.vue'),
+                meta: {
+                    name: 'iframe通信',
+                    icon: 'guide'
+                }
+            }, {
+                path: 'screen',
+                name: 'screen',
+                component: () => import('@/pages/screen/screen.vue'),
+                meta: {
+                    name: '大屏展示',
+                    icon: 'data-analysis'
+                }
+            }, {
+                path: 'form',
+                name: 'form',
+                component: () => import('@/pages/form/form.vue'),
+                meta: {
+                    name: '表单',
+                    icon: 'tickets'
+                }
+            }, {
+                path: 'other',
+                name: 'other',
+                component: () => import('@/pages/other/other.vue'),
+                meta: {
+                    name: '其他模块',
+                    icon: 'link'
                 }
             }
         ]
@@ -122,7 +179,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/contact/contact.vue'),
         meta: {
             name: '联系我们',
-            icon: 'grid'
+            icon: 'phone'
         }
     }, {
         path: 'map',
@@ -130,7 +187,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/map/map.vue'),
         meta: {
             name: '地图',
-            icon: 'grid'
+            icon: 'map-location'
         }
     }, {
         path: 'editor',
@@ -138,7 +195,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/editor/editor.vue'),
         meta: {
             name: '富文本编辑器',
-            icon: 'grid'
+            icon: 'reading'
         }
     }, {
         path: 'iframe',
@@ -146,7 +203,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/iframe/iframe.vue'),
         meta: {
             name: 'iframe通信',
-            icon: 'grid'
+            icon: 'guide'
         }
     }, {
         path: 'screen',
@@ -154,7 +211,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/screen/screen.vue'),
         meta: {
             name: '大屏展示',
-            icon: 'grid'
+            icon: 'data-analysis'
         }
     }, {
         path: 'form',
@@ -162,7 +219,7 @@ export const DynamicRoutes = [
         component: () => import('@/pages/form/form.vue'),
         meta: {
             name: '表单',
-            icon: 'grid'
+            icon: 'tickets'
         }
     }, {
         path: 'other',
@@ -170,9 +227,25 @@ export const DynamicRoutes = [
         component: () => import('@/pages/other/other.vue'),
         meta: {
             name: '其他模块',
-            icon: 'grid'
+            icon: 'link'
         }
     }
 ]
+
+router.beforeEach((to: any, from: any, next: any) => {
+    next();
+})
+
+router.afterEach((to: any, from: any, next: any) => {
+    try {
+        //设置标题
+        if (to.meta.name) {
+            document.title = to.meta.name;
+        }
+    } catch (err) { }
+    let routerList = to.matched;
+    //顶部面包屑
+    store.commit("setCrumbList", routerList);
+})
 
 export default router;
