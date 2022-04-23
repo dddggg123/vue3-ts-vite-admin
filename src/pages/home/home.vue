@@ -1,16 +1,32 @@
 <template>
-  <div class="home-container">这里是首页界面</div>
+  <div class="home-container">这里是首页界面 {{count}}</div>
 </template>
 
 <script lang="ts">
-export default {
+import {defineComponent, onMounted, ref} from 'vue';
+export default defineComponent({
+  setup() {
+    let count = ref(0);
 
-}
+    const addCount = () => {
+      setInterval(() => {
+        count.value += 1;
+      }, 1000)
+    }
+
+    onMounted(() => {
+      addCount();
+    });
+
+    return {
+      count
+    }
+  }
+})
 </script>
 
 <style lang="scss">
 .home-container {
   width: 100%;
-  height: 100%;
 }
 </style>

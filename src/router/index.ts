@@ -3,7 +3,14 @@ import store from "../store/index";
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '',
+        path: '/login',
+        name: 'login',
+        component: () => import('@/pages/login/login.vue'),
+        meta: {
+            name: '登录'
+        }
+    }, {
+        path: '/',
         name: 'container',
         component: () => import('@/pages/container/container.vue'),
         meta: {
@@ -11,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
         },
         children: [
             {
-                path: 'home',
+                path: '/home',
                 name: 'home',
                 component: () => import('@/pages/home/home.vue'),
                 meta: {
@@ -19,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'house'
                 }
             }, {
-                path: 'theme',
+                path: '/theme',
                 name: 'theme',
                 component: () => import('@/pages/theme/theme.vue'),
                 meta: {
@@ -27,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'mostly-cloudy'
                 }
             }, {
-                path: 'table',
+                path: '/table',
                 name: 'table',
                 component: () => import('@/pages/table/table.vue'),
                 meta: {
@@ -35,7 +42,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'tickets'
                 }
             }, {
-                path: 'router',
+                path: '/router',
                 name: 'router',
                 component: () => import('@/pages/router/router.vue'),
                 meta: {
@@ -43,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'sort'
                 }
             }, {
-                path: 'international',
+                path: '/international',
                 name: 'international',
                 component: () => import('@/pages/international/international.vue'),
                 meta: {
@@ -51,7 +58,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'help'
                 }
             }, {
-                path: 'micro',
+                path: '/micro',
                 name: 'micro',
                 component: () => import('@/pages/micro/micro.vue'),
                 meta: {
@@ -59,7 +66,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'grid'
                 }
             }, {
-                path: 'contact',
+                path: '/contact',
                 name: 'contact',
                 component: () => import('@/pages/contact/contact.vue'),
                 meta: {
@@ -67,7 +74,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'phone'
                 }
             }, {
-                path: 'map',
+                path: '/map',
                 name: 'map',
                 component: () => import('@/pages/map/map.vue'),
                 meta: {
@@ -75,7 +82,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'map-location'
                 }
             }, {
-                path: 'editor',
+                path: '/editor',
                 name: 'editor',
                 component: () => import('@/pages/editor/editor.vue'),
                 meta: {
@@ -83,7 +90,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'reading'
                 }
             }, {
-                path: 'iframe',
+                path: '/iframe',
                 name: 'iframe',
                 component: () => import('@/pages/iframe/iframe.vue'),
                 meta: {
@@ -91,7 +98,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'guide'
                 }
             }, {
-                path: 'screen',
+                path: '/screen',
                 name: 'screen',
                 component: () => import('@/pages/screen/screen.vue'),
                 meta: {
@@ -99,7 +106,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'data-analysis'
                 }
             }, {
-                path: 'form',
+                path: '/form',
                 name: 'form',
                 component: () => import('@/pages/form/form.vue'),
                 meta: {
@@ -107,7 +114,7 @@ const routes: Array<RouteRecordRaw> = [
                     icon: 'tickets'
                 }
             }, {
-                path: 'other',
+                path: '/other',
                 name: 'other',
                 component: () => import('@/pages/other/other.vue'),
                 meta: {
@@ -126,7 +133,7 @@ const router = createRouter({
 
 export const DynamicRoutes = [
     {
-        path: 'home',
+        path: '/home',
         name: 'home',
         component: () => import('@/pages/home/home.vue'),
         meta: {
@@ -134,7 +141,7 @@ export const DynamicRoutes = [
             icon: 'house'
         }
     }, {
-        path: 'theme',
+        path: '/theme',
         name: 'theme',
         component: () => import('@/pages/theme/theme.vue'),
         meta: {
@@ -142,7 +149,7 @@ export const DynamicRoutes = [
             icon: 'mostly-cloudy'
         }
     }, {
-        path: 'table',
+        path: '/table',
         name: 'table',
         component: () => import('@/pages/table/table.vue'),
         meta: {
@@ -150,7 +157,7 @@ export const DynamicRoutes = [
             icon: 'tickets'
         }
     }, {
-        path: 'router',
+        path: '/router',
         name: 'router',
         component: () => import('@/pages/router/router.vue'),
         meta: {
@@ -158,7 +165,7 @@ export const DynamicRoutes = [
             icon: 'sort'
         }
     }, {
-        path: 'international',
+        path: '/international',
         name: 'international',
         component: () => import('@/pages/international/international.vue'),
         meta: {
@@ -166,7 +173,7 @@ export const DynamicRoutes = [
             icon: 'help'
         }
     }, {
-        path: 'micro',
+        path: '/micro',
         name: 'micro',
         component: () => import('@/pages/micro/micro.vue'),
         meta: {
@@ -174,7 +181,7 @@ export const DynamicRoutes = [
             icon: 'grid'
         }
     }, {
-        path: 'contact',
+        path: '/contact',
         name: 'contact',
         component: () => import('@/pages/contact/contact.vue'),
         meta: {
@@ -182,7 +189,7 @@ export const DynamicRoutes = [
             icon: 'phone'
         }
     }, {
-        path: 'map',
+        path: '/map',
         name: 'map',
         component: () => import('@/pages/map/map.vue'),
         meta: {
@@ -190,7 +197,7 @@ export const DynamicRoutes = [
             icon: 'map-location'
         }
     }, {
-        path: 'editor',
+        path: '/editor',
         name: 'editor',
         component: () => import('@/pages/editor/editor.vue'),
         meta: {
@@ -198,7 +205,7 @@ export const DynamicRoutes = [
             icon: 'reading'
         }
     }, {
-        path: 'iframe',
+        path: '/iframe',
         name: 'iframe',
         component: () => import('@/pages/iframe/iframe.vue'),
         meta: {
@@ -206,7 +213,7 @@ export const DynamicRoutes = [
             icon: 'guide'
         }
     }, {
-        path: 'screen',
+        path: '/screen',
         name: 'screen',
         component: () => import('@/pages/screen/screen.vue'),
         meta: {
@@ -214,7 +221,7 @@ export const DynamicRoutes = [
             icon: 'data-analysis'
         }
     }, {
-        path: 'form',
+        path: '/form',
         name: 'form',
         component: () => import('@/pages/form/form.vue'),
         meta: {
@@ -222,7 +229,7 @@ export const DynamicRoutes = [
             icon: 'tickets'
         }
     }, {
-        path: 'other',
+        path: '/other',
         name: 'other',
         component: () => import('@/pages/other/other.vue'),
         meta: {
