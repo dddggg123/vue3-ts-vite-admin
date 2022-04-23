@@ -5,10 +5,17 @@ const path = require('path')
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
-    extensions: ['.js', '.vue', '.json', ".scss"],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
+    extensions: ['.js', '.vue', '.json', 'scss', '.ts'],
+    alias: [{
+      find: "@",
+      replacement: path.resolve(__dirname, 'src')
+    }, {
+      find: "components",
+      replacement: path.resolve(__dirname, 'src/components')
+    }, {
+      find: "vites",
+      replacement: path.resolve(__dirname, 'src/view')
+    }]
   },
   plugins: [vue()]
 })

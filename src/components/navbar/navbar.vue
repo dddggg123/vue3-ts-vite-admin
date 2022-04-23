@@ -1,6 +1,6 @@
 <template>
   <div class="nav-container">
-      这里是导航栏
+      <router-view></router-view>
   </div>
 </template>
 

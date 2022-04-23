@@ -1,17 +1,25 @@
 <template>
   <div class="app-container">
-    <Menu></Menu>
+    <Menu :menuList="state.sidebarMenu"></Menu>
     <Navbar></Navbar>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 import Menu from "@/components/menu/menu.vue";
 import Navbar from "@/components/navbar/navbar.vue";
+import {DynamicRoutes} from "../../router/index";
 
 export default defineComponent({
-  setup() {},
+  setup() {
+    let state = reactive({
+      sidebarMenu: DynamicRoutes
+    })
+    return {
+      state
+    }
+  },
   components: {
     Menu,
     Navbar,
