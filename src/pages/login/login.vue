@@ -2,8 +2,16 @@
   <div class="login-container">
     <div class="login-section">
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
-        <el-tab-pane label="账号登录" name="account">User</el-tab-pane>
-        <el-tab-pane label="扫码登录" name="qrcode">Config</el-tab-pane>
+        <el-tab-pane label="账号登录" name="account">
+          <div class="account-section">
+            <div @click="loginHandler" class="login-btn">登录</div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="扫码登录" name="qrcode">
+          <div class="qrcode-section">
+            <div @click="loginHandler" class="login-btn">登录</div>
+          </div>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -13,17 +21,22 @@
 import { defineComponent, ref } from 'vue'
 import { particles } from './config/particles-config'
 import type { TabsPaneContext } from 'element-plus'
-
+import { useRouter } from 'vue-router'
 export default defineComponent({
   setup() {
     const currentTab = ref('account');
     const tabChangeHandler = (tab: TabsPaneContext, event: Event) => {
       console.log(tab, event);
     }
+    const router = useRouter();
+    const loginHandler = () => {
+      router.push('/home');
+    }
     return {
       particles,
       currentTab,
-      tabChangeHandler
+      tabChangeHandler,
+      loginHandler
     }
   }
 })
@@ -47,11 +60,36 @@ export default defineComponent({
     background-color: #fff;
     border-radius: 20px;
 
+    .login-btn {
+      width: 300px;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      text-align: center;
+      border-radius: 20px;
+      background-color: #409eff;
+      margin: 0 auto;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
     .el-tabs__nav {
       width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+
+      .el-tab-pane {
+        width: 100%;
+
+        .account-section {
+          width: 100%;
+        }
+      }
 
       .el-tabs__item {
-        width: 50%;
+        width: 25%;
         text-align: center;
         border: none;
       }
