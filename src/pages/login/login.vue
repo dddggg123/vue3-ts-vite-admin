@@ -4,6 +4,22 @@
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
         <el-tab-pane label="账号登录" name="account">
           <div class="account-section">
+            <div class="input-section">
+              <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
+                <template #prefix>
+                  <el-icon class="el-input__icon">
+                    <search />
+                  </el-icon>
+                </template>
+              </el-input>
+              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" placeholder="请输入密码">
+                <template #prefix>
+                  <el-icon class="el-input__icon">
+                    <search />
+                  </el-icon>
+                </template>
+              </el-input>
+            </div>
             <div @click="loginHandler" class="login-btn">登录</div>
           </div>
         </el-tab-pane>
@@ -18,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, Ref } from 'vue'
 import { particles } from './config/particles-config'
 import type { TabsPaneContext } from 'element-plus'
 import { useRouter } from 'vue-router'
@@ -32,11 +48,15 @@ export default defineComponent({
     const loginHandler = () => {
       router.push('/home');
     }
+    const account: Ref<String> = ref('');
+    const password: Ref<String> = ref('');
     return {
       particles,
       currentTab,
       tabChangeHandler,
-      loginHandler
+      loginHandler,
+      account,
+      password
     }
   }
 })
@@ -61,7 +81,7 @@ export default defineComponent({
     border-radius: 20px;
 
     .login-btn {
-      width: 300px;
+      width: 400px;
       height: 40px;
       line-height: 40px;
       color: #fff;
@@ -72,6 +92,10 @@ export default defineComponent({
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
+    }
+
+    .input-section {
+      padding: 20px 50px;
     }
 
     .el-tabs__nav {
