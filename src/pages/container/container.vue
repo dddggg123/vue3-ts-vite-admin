@@ -6,15 +6,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, onMounted } from "vue";
 import Menu from "@/components/menu/menu.vue";
 import Navbar from "@/components/navbar/navbar.vue";
 import {DynamicRoutes} from "../../router/index";
+import {useRouter} from 'vue-router';
 
 export default defineComponent({
   setup() {
     let state = reactive({
       sidebarMenu: DynamicRoutes
+    })
+    const router = useRouter();
+    onMounted(() => {
+      // 初始化跳转至 home首页 界面
+      router.push('/home');
     })
     return {
       state
@@ -22,7 +28,7 @@ export default defineComponent({
   },
   components: {
     Menu,
-    Navbar,
+    Navbar
   }
 });
 </script>
