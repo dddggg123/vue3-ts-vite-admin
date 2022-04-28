@@ -15,7 +15,8 @@
     "screenfull": "^5.1.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "wangeditor": "^4.7.5"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
