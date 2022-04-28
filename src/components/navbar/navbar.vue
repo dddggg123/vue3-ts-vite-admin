@@ -5,34 +5,41 @@
         <el-breadcrumb separator="/">
           <transition-group name="breadcrumb">
             <!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
-            <el-breadcrumb-item
-              v-for="(route, i) in state.crumbList"
-              :key="route.name"
-              :to="{ name: route.name }"
+            <el-breadcrumb-item v-for="(route, i) in state.crumbList" :key="route.name" :to="{ name: route.name }"
               :class="{
                 'is-last-link': i == state.crumbList.length - 1,
-              }"
-            >
+              }">
               <span v-if="route.name != 'home'">{{ route.meta.name }}</span>
             </el-breadcrumb-item>
           </transition-group>
         </el-breadcrumb>
       </div>
-      <div class="user-section">
-        <el-dropdown @command="handleCommand">
-          <img
-            class="header-img"
-            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-a8a6c2a721e25040f94cefb6facb4741_hd.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653315444&t=8053495416847e53c140620a973eabc4"
-            alt=""
-          />
-          <span class="username">管理员</span>
-          <el-icon><arrow-down-bold /></el-icon>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="quit">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+      <div class="tool-section">
+        <div class="btn-section">
+          <div @click="fullScreenHandler" class="btn">
+            <el-icon>
+              <full-screen />
+            </el-icon>
+            <span class="btn-title">全屏</span>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="user-section">
+          <el-dropdown @command="handleCommand">
+            <img class="header-img"
+              src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-a8a6c2a721e25040f94cefb6facb4741_hd.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653315444&t=8053495416847e53c140620a973eabc4"
+              alt="" />
+            <span class="username">管理员</span>
+            <el-icon>
+              <arrow-down-bold />
+            </el-icon>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="quit">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
       </div>
     </aside>
     <div class="app-content">
@@ -45,6 +52,8 @@
 import { defineComponent, reactive, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import screenfull from "screenfull";
+
 export default defineComponent({
   setup() {
     const handleCommand = (command: string) => {
@@ -56,9 +65,13 @@ export default defineComponent({
     let state: any = reactive({
       crumbList: computed(() => store.getters.getCrumbList),
     });
+    let fullScreenHandler = () => {
+      screenfull.isEnabled && screenfull.toggle();
+    }
     return {
       state,
-      handleCommand
+      handleCommand,
+      fullScreenHandler
     };
   },
 });
@@ -89,31 +102,64 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
 
-    .user-section {
-      width: 10%;
-      padding-right: 20px;
-      text-align: right;
+    .tool-section {
+      width: 20%;
+      display: flex;
 
-      .el-dropdown {
-        height: 50px;
-        cursor: pointer;
-
-        .el-tooltip__trigger {
-          display: flex;
+      .btn-section {
+        width: 50%;
+        display: flex;
         justify-content: flex-end;
         align-items: center;
+
+        .btn {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          cursor: pointer;
+          margin-right: 20px;
+
+          .btn-title {
+            margin-left: 10px;
+            font-size: 15px;
+            color: #1d99e3;
+          }
         }
 
-        .header-img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
+        .line {
+          width: 1px;
+          height: 20px;
+          background-color: #a4a4a4;
         }
+      }
 
-        .username {
-          font-size: 15px;
-          margin-left: 10px;
-          margin-right: 10px;
+      .user-section {
+        width: 50%;
+        padding-right: 20px;
+        text-align: right;
+
+        .el-dropdown {
+          height: 50px;
+          cursor: pointer;
+
+          .el-tooltip__trigger {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+          }
+
+          .header-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+
+          .username {
+            font-size: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            // color: #1d99e3;
+          }
         }
       }
     }
