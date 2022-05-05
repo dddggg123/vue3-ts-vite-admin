@@ -18,7 +18,7 @@
         <div class="btn-section">
           <div @click="fullScreenHandler" class="btn">
             <el-icon>
-              <full-screen />
+              <full-screen color="#1d99e3" />
             </el-icon>
             <span class="btn-title">全屏</span>
           </div>
