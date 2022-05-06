@@ -38,7 +38,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue'
-import { particles } from './config/particles-config'
 import type { TabsPaneContext } from 'element-plus'
 import { useRouter } from 'vue-router'
 export default defineComponent({
@@ -53,8 +52,8 @@ export default defineComponent({
     }
     const account: Ref<String> = ref('');
     const password: Ref<String> = ref('');
+
     return {
-      particles,
       currentTab,
       tabChangeHandler,
       loginHandler,
