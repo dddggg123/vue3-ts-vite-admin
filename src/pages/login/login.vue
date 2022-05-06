@@ -10,15 +10,15 @@
             <div class="input-section">
               <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
                 <template #prefix>
-                  <el-icon class="el-input__icon">
-                    <search />
+                  <el-icon>
+                    <user />
                   </el-icon>
                 </template>
               </el-input>
               <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" placeholder="请输入密码">
                 <template #prefix>
-                  <el-icon class="el-input__icon">
-                    <search />
+                  <el-icon>
+                    <connection />
                   </el-icon>
                 </template>
               </el-input>
@@ -48,7 +48,9 @@ export default defineComponent({
     }
     const router = useRouter();
     const loginHandler = () => {
-      router.push('/home');
+      console.log('账号:' + account.value);
+      console.log('密码:' + password.value);
+      // router.push('/home');
     }
     const account: Ref<String> = ref('');
     const password: Ref<String> = ref('');
@@ -86,6 +88,7 @@ export default defineComponent({
       font-weight: 500;
     }
   }
+
   .login-section {
     width: 500px;
     height: 300px;
@@ -94,7 +97,7 @@ export default defineComponent({
     margin-top: 10px;
 
     .login-btn {
-      width: 400px;
+      width: 320px;
       height: 40px;
       line-height: 40px;
       color: #fff;
@@ -108,7 +111,7 @@ export default defineComponent({
     }
 
     .input-section {
-      padding: 20px 50px;
+      padding: 20px 90px;
     }
 
     .el-tabs__nav {
