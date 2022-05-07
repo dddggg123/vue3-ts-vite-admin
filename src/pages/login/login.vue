@@ -48,9 +48,9 @@ export default defineComponent({
     }
     const router = useRouter();
     const loginHandler = () => {
-      console.log('账号:' + account.value);
-      console.log('密码:' + password.value);
-      // router.push('/home');
+      // console.log('账号:' + account.value);
+      // console.log('密码:' + password.value);
+      router.push('/home');
     }
     const account: Ref<String> = ref('');
     const password: Ref<String> = ref('');
