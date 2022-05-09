@@ -82,10 +82,14 @@ export default defineComponent({
   height: 100%;
   margin-left: 200px;
   width: calc(100% - 200px);
+  z-index: 9999;
 
   .app-content {
-    margin-top: 50px;
-    height: calc(100% - 50px);
+    position: fixed;
+    top: 50px;
+    left: 200px;
+    right: 0;
+    bottom: 0;
   }
 
   .nav-top {
@@ -165,7 +169,7 @@ export default defineComponent({
     }
 
     .breadcrumb-section {
-      width: 10%;
+      width: 15%;
       padding-left: 20px;
 
       .el-breadcrumb {
