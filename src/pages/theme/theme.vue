@@ -2,26 +2,50 @@
   <div class="theme-container">
     <p class="theme-title">选择项目主题色</p>
     <div class="color-pick-section">
-      <div class="color-item theme1">
-        <span class="color-title">主题1</span>
-      </div>
-      <div class="color-item theme2">
-        <span class="color-title">主题2</span>
-      </div>
-      <div class="color-item theme3">
-        <span class="color-title">主题3</span>
-      </div>
-      <div class="color-item theme4">
-        <span class="color-title">主题4</span>
+      <div v-for="(item, index) in themeArr" :style="{ color: item.color, backgroundColor: item.bgColor }"
+        @click="themeItemHandler(index)" class="color-item">
+        <span class="color-title">{{ item.title }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent, reactive } from 'vue'
 
-}
+export default defineComponent({
+  setup() {
+    const themeArr = reactive([
+      {
+        title: '主题1',
+        color: '#fff',
+        bgColor: '#304156'
+      }, {
+        title: '主题2',
+        color: '#fff',
+        bgColor: '#409eff'
+      }, {
+        title: '主题3',
+        color: '#f7b765',
+        bgColor: '#a16bfe'
+      }, {
+        title: '主题4',
+        color: '#9dfcf4',
+        bgColor: '#121317'
+      }
+    ])
+    const themeItemHandler = (index: number) => {
+      window.document.documentElement.setAttribute(
+        "data-ming",
+        `theme${index+1}`
+      );
+    }
+    return {
+      themeArr,
+      themeItemHandler
+    }
+  }
+})
 </script>
 
 <style lang="scss">
@@ -53,30 +77,11 @@ export default {
       justify-content: center;
       align-items: center;
       margin: 0 10px;
+      cursor: pointer;
 
       .color-title {
         font-size: 18px;
       }
-    }
-
-    .theme1 {
-      background-color: #304156;
-      color: #fff;
-    }
-
-    .theme2 {
-      background-color: #409eff;
-      color: #fff;
-    }
-
-    .theme3 {
-      background-color: #a16bfe;
-      color: #f7b765;
-    }
-
-    .theme4 {
-      background-color: #121317;
-      color: #9dfcf4;
     }
   }
 }

@@ -6,6 +6,7 @@ import'./styles/index.scss'
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import * as ElIcons from '@element-plus/icons-vue';
+import "@/styles/theme/index.scss";
 
 const app = createApp(App)
 for (const name in ElIcons){

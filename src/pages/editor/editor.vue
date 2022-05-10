@@ -1,8 +1,6 @@
 <template>
   <div class="editor-container">
-    <div id="editor" class="editor">
-      <p>这里是编辑器输入</p>
-    </div>
+    <div id="editor" class="editor"></div>
   </div>
 </template>
 
