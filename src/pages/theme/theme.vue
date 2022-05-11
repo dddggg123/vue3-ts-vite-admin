@@ -7,6 +7,16 @@
         <span class="color-title">{{ item.title }}</span>
       </div>
     </div>
+    <div class="remark-section">
+      <div class="remark-content">
+        <p class="remark-title">使用说明</p>
+        <p class="reamrk-desc">1、给所有需要统一主题色的元素增加一个class: theme-bg</p>
+        <p class="reamrk-desc">2、主题色的背景、字体色号可在@/styles/theme/value.scss文件中进行配置</p>
+        <p class="reamrk-desc">3、具体元素css代码可在@/styles/theme/mixin.scss文件中进行配置</p>
+        <p class="reamrk-desc">4、通过使用window.document.documentElement.setAttribute给元素设置key:value，动态设置当前主题色</p>
+        <p class="reamrk-desc">5、同理元素的主题字体大小也可以通过类似的方法来全局实现</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,7 +46,7 @@ export default defineComponent({
     ])
     const themeItemHandler = (index: number) => {
       window.document.documentElement.setAttribute(
-        "data-ming",
+        "current-theme",
         `theme${index+1}`
       );
     }
@@ -56,6 +66,29 @@ export default defineComponent({
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  .remark-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 150px;
+
+    .remark-content {
+      width: 50%;
+      text-align: left;
+
+      .remark-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      .remark-desc {
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
 
   .theme-title {
     font-size: 35px;

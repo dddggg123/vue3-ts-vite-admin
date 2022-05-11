@@ -19,82 +19,77 @@
     //     color: $active-theme !important;
     // }
 
-    [data-ming="theme1"] & {
-
-        .el-menu {
-            background-color: $bg-ming-theme1 !important;
-
-            .el-menu-item {
-                color: $font-color-ming-theme1 !important;
-
-                .is-active {
-                    color: $active-theme1 !important;
-                }
-            }
-
-            .is-active {
-                background-color: $select-bg-ming-theme1 !important;
-            }
-
-            .el-menu-item:hover {
-                color: $font-color-ming-theme1 !important;
-                background-color: $bg-ming-theme1 !important;
-            }
-        }
-
-
-    }
-
-    [data-ming="theme2"] & {
+    [current-theme="theme1"] & {
+        background-color: $bg-ming-theme1  !important;
 
         .el-menu-item {
-            color: $font-color-ming-theme2 !important;
-            background-color: $bg-ming-theme2 !important;
+            color: $font-color-ming-theme1  !important;
 
             .is-active {
-                background-color: $select-bg-ming-theme2 !important;
-                color: $active-theme2 !important;
+                color: $active-theme1  !important;
             }
         }
 
-        .el-menu-item:hover {
-            color: $font-color-ming-theme2 !important;
-            background-color: $bg-ming-theme2 !important;
+        .is-active {
+            background-color: $select-bg-ming-theme1  !important;
+            color: $active-theme1  !important;
         }
     }
 
-    [data-ming="theme3"] & {
+    [current-theme="theme2"] & {
+        background-color: $bg-ming-theme2  !important;
 
         .el-menu-item {
-            color: $font-color-ming-theme3 !important;
-            background-color: $bg-ming-theme3 !important;
+            color: $font-color-ming-theme2  !important;
+            background-color: $bg-ming-theme2  !important;
 
             .is-active {
-                background-color: $select-bg-ming-theme3 !important;
-                color: $active-theme3 !important;
+                background-color: $select-bg-ming-theme2  !important;
+                color: $active-theme2  !important;
             }
         }
 
-        .el-menu-item:hover {
-            background-color: $select-bg-ming-theme3 !important;
-            color: $active-theme3 !important;
+        .is-active {
+            background-color: $select-bg-ming-theme2  !important;
+            color: $active-theme2  !important;
         }
     }
 
-    [data-ming="theme4"] & {
+    [current-theme="theme3"] & {
+        background-color: $bg-ming-theme3  !important;
+
         .el-menu-item {
-            color: $font-color-ming-theme4 !important;
-            background-color: $bg-ming-theme4 !important;
+            color: $font-color-ming-theme3  !important;
+            background-color: $bg-ming-theme3  !important;
 
             .is-active {
-                background-color: $select-bg-ming-theme4 !important;
-                color: $active-theme4 !important;
+                background-color: $select-bg-ming-theme3  !important;
+                color: $active-theme3  !important;
             }
         }
 
-        .el-menu-item:hover {
-            color: $font-color-ming-theme4 !important;
-            background-color: $bg-ming-theme4 !important;
+        .is-active {
+            background-color: $select-bg-ming-theme3  !important;
+            color: $active-theme3  !important;
+        }
+    }
+
+    [current-theme="theme4"] & {
+        background-color: $bg-ming-theme4  !important;
+
+        .el-menu-item {
+            color: $font-color-ming-theme4  !important;
+            background-color: $bg-ming-theme4  !important;
+
+            .is-active {
+                background-color: $select-bg-ming-theme4  !important;
+                color: $active-theme4  !important;
+            }
+        }
+
+        .is-active {
+            background-color: $select-bg-ming-theme4  !important;
+            color: $active-theme4  !important;
         }
     }
 }
@@ -103,19 +98,19 @@
 // @mixin font-color($color) {
 //     color: $color;
 
-//     [data-ming="theme1"] & {
+//     [current-theme="theme1"] & {
 //         color: $active-theme1;
 //     }
 
-//     [data-ming="theme2"] & {
+//     [current-theme="theme2"] & {
 //         color: $active-theme2;
 //     }
 
-//     [data-ming="theme3"] & {
+//     [current-theme="theme3"] & {
 //         color: $active-theme3;
 //     }
 
-//     [data-ming="theme4"] & {
+//     [current-theme="theme4"] & {
 //         color: $active-theme4;
 //     }
 
