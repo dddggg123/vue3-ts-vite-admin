@@ -12,17 +12,17 @@
     提示：为了防止刷新复原问题，可使用缓存进行解决
     window.document.documentElement.setAttribute('data-ming', "theme1");
 */
-.theme-all{
-    @include font-color($color-ming);
-    // @include font-size($size-ming);
-    @include bg-color($bg-ming);
-}
-.theme-size{
-    @include font-size($size-ming);
-}
-.theme-color{
-    @include font-color($color-ming);
-}
+// .theme-all{
+//     @include font-color($color-ming);
+//     @include font-size($size-ming);
+//     @include bg-color($bg-ming);
+// }
+// .theme-size{
+//     @include font-size($size-ming);
+// }
+// .theme-color{
+//     @include font-color($color-ming);
+// }
 .theme-bg{
     @include bg-color($bg-ming);
     // .is-active{

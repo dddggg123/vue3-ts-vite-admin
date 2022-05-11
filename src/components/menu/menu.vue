@@ -97,5 +97,11 @@ export default defineComponent({
       background-color: #409eff;
     }
   }
+
+  // .el-menu .el-menu-item:hover{
+  //   outline: 0 !important;
+  //   color: #2E95FB !important;
+  //   background: linear-gradient(270deg, #F2F7FC 0%, #FEFEFE 100%)!important;
+  // }
 }
 </style>
