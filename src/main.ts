@@ -7,6 +7,14 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import * as ElIcons from '@element-plus/icons-vue';
 import "@/styles/theme/index.scss";
+// 国际化
+import { createI18n } from "vue-i18n";
+import language from "../src/utils/language";
+
+const international = createI18n({
+   locale: "zh-CN", //默认显示的语言
+   messages: language
+});
 
 const app = createApp(App)
 for (const name in ElIcons){
@@ -15,5 +23,6 @@ for (const name in ElIcons){
 
 app.use(store)
    .use(router)
+   .use(international)
    .use(ElementPlus)
    .mount('#app')

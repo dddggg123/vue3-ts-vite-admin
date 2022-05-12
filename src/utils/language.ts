@@ -1,0 +1,45 @@
+const language = {
+    "zh-CN": {
+        nickName: '管理员',
+        title: '当前语言：中文',
+        welcome: "欢迎使用开源的：vue3-ts-vite-admin",
+        btnZh: "切换中文",
+        btnEn: "切换英文",
+        首页: '首页',
+        主题管理: '主题管理',
+        表格管理: '表格管理',
+        路由管理: '路由管理',
+        国际化: '国际化',
+        微前端: '微前端',
+        地图: '地图',
+        富文本编辑器: '富文本编辑器',
+        iframe通信: 'iframe通信',
+        大屏展示: '大屏展示',
+        表单: '表单',
+        联系我们: '联系我们',
+        其他模块: '其他模块',
+        full: '全屏'
+    },
+    "en-US": {
+        nickName: 'adminer',
+        title: 'current language: English',
+        welcome: "welcome to use open source vue3-ts-vite-admin",
+        btnZh: "change Chinese",
+        btnEn: "change English",
+        首页: 'Home',
+        主题管理: 'Theme Manage',
+        表格管理: 'Table Manage',
+        路由管理: 'Router Manage',
+        国际化: 'International',
+        微前端: 'Micro Web',
+        地图: 'Map',
+        富文本编辑器: 'Editor',
+        iframe通信: 'iframe Message',
+        大屏展示: 'Screen',
+        表单: 'Form',
+        联系我们: 'Contact',
+        其他模块: 'Other',
+        full: 'Full Screen'
+    }
+};
+export default language;

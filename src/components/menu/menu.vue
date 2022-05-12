@@ -23,7 +23,8 @@
               <el-icon>
                 <component class="iconfont theme-color" :is="v.meta.icon" />
               </el-icon>
-              <span class="theme-color">{{ v.meta.name }}</span>
+              <span class="theme-color">{{ $t(v.meta.name) }}</span>
+              <!-- <item class="theme-color" :title="titleConfirm(v.meta.name)"></item> -->
             </template>
             <el-menu-item-group>
               <my-menu :menuList="v.children"></my-menu>
@@ -42,7 +43,7 @@
             <el-icon>
               <component class="iconfont theme-color" :is="v.meta.icon" />
             </el-icon>
-            <span class="theme-color">{{ v.meta.name }}</span>
+            <span class="theme-color">{{ $t(v.meta.name) }}</span>
           </el-menu-item>
         </div>
       </template>
@@ -76,7 +77,7 @@ export default defineComponent({
     });
     return {
       navigateToRoute,
-      state,
+      state
     };
   },
 });
