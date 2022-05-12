@@ -35,7 +35,7 @@
             </el-icon>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="quit">退出登录</el-dropdown-item>
+                <el-dropdown-item command="quit">{{$t("signOut")}}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>

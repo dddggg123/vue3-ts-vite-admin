@@ -18,7 +18,8 @@ const language = {
         表单: '表单',
         联系我们: '联系我们',
         其他模块: '其他模块',
-        full: '全屏'
+        full: '全屏',
+        signOut: '退出登录'
     },
     "en-US": {
         nickName: 'adminer',
@@ -39,7 +40,8 @@ const language = {
         表单: 'Form',
         联系我们: 'Contact',
         其他模块: 'Other',
-        full: 'Full Screen'
+        full: 'Full Screen',
+        signOut: 'Sign Out'
     }
 };
 export default language;
