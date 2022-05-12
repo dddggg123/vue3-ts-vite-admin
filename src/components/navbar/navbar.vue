@@ -90,6 +90,7 @@ export default defineComponent({
     left: 200px;
     right: 0;
     bottom: 0;
+    overflow: scroll;
   }
 
   .nav-top {
