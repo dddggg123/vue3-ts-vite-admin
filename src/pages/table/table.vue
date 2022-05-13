@@ -1,8 +1,15 @@
 <template>
   <div class="table-container">
+    <div class="remark-section">
+      <div class="remark-content">
+        <p class="remark-title">使用说明</p>
+        <p class="reamrk-desc">1、excel导入导出使用的依赖为：file-saver、xlsx</p>
+        <p class="reamrk-desc">2、excel导出方法封装可见@/utils/export.ts文件</p>
+      </div>
+    </div>
     <div class="btn-section">
       <el-button class="btn" @click="exportExcelHandler" type="primary">导出excel</el-button>
-      <el-button class="btn" @click="importExcelHandler" type="success">导入excel</el-button>
+      <!-- <el-button class="btn" @click="importExcelHandler" type="success">导入excel</el-button> -->
     </div>
     <el-table class="table-book" :border="true" :stripe="true" :data="bookList" style="width: 90%">
       <el-table-column prop="img" label="封面" width="100">
@@ -34,8 +41,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import FileSaver from 'file-saver'
-import XLSX from 'xlsx'
+import {exportExcel} from '../../utils/export'
 
 export default defineComponent({
   setup() {
@@ -184,31 +190,17 @@ export default defineComponent({
 
     }
     const exportExcelHandler = () => {
-      let xlsxParam = { raw: true }
-      // 设置当前日期
-      let time = new Date();
-      let year = time.getFullYear();
-      let month = time.getMonth() + 1;
-      let day = time.getDate();
-      let name = '数据列表' + year + '' + month + '' + day;
-      // console.log(name)
-      /* generate workbook object from table */
-      //  .excelTable要导出的是哪一个表格   注意这里的 excelTable 是要导出的表格的类名
-      let wb = XLSX.utils.table_to_book(document.querySelector('.table-book'), xlsxParam);
-      /* get binary string as output */
-      let wbout = XLSX.write(wb, {
-        bookType: 'xlsx',
-        bookSST: true,
-        type: 'array'
-      });
-      try {
-        //  name+'.xlsx'表示导出的excel表格名字
-        FileSaver.saveAs(
-          new Blob([wbout], { type: 'application/octet-stream' }),
-          name + '.xlsx'
-        );
-      } catch (e) {
+      const tableHeder: Object = {
+        img: '封面',
+        title: '标题',
+        author: '作者',
+        publish: '出版社',
+        pubdate: '出版日期',
+        isbn: 'ISBN',
+        price: '价格',
+        page: '页数'
       }
+      exportExcel(bookList, tableHeder, '图书数据');
     }
     return {
       bookBtnHandler,
@@ -224,6 +216,26 @@ export default defineComponent({
 .table-container {
   width: 100%;
   padding-bottom: 20px;
+
+  .remark-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 0 5%;
+
+    .remark-content {
+      text-align: left;
+
+      .remark-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      .remark-desc {
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
 
   .table-book {
     margin: 0 auto;

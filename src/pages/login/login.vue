@@ -50,7 +50,10 @@ export default defineComponent({
     const loginHandler = () => {
       // console.log('账号:' + account.value);
       // console.log('密码:' + password.value);
-      router.push('/home');
+      window.localStorage.setItem('token', 'vue3-ts-vite-admin');
+      setTimeout(() => {
+        router.push('/');
+      }, 500);
     }
     const account: Ref<String> = ref('');
     const password: Ref<String> = ref('');

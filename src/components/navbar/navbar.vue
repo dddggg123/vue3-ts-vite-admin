@@ -58,7 +58,10 @@ export default defineComponent({
   setup() {
     const handleCommand = (command: string) => {
       console.log('我点击了:' + command);
-      router.push('/login');
+      window.localStorage.clear();
+      setTimeout(() => {
+        router.push('/login');
+      }, 500);
     }
     const router = useRouter();
     const store = useStore();
