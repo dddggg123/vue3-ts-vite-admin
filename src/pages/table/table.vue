@@ -1,5 +1,9 @@
 <template>
   <div class="table-container">
+    <div class="btn-section">
+      <el-button class="btn" @click="exportExcelHandler" type="primary">导出excel</el-button>
+      <el-button class="btn" @click="importExcelHandler" type="success">导入excel</el-button>
+    </div>
     <el-table class="table-book" :border="true" :stripe="true" :data="bookList" style="width: 90%">
       <el-table-column prop="img" label="封面" width="100">
         <template v-slot="scope">
@@ -30,6 +34,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+// import FileSaver from 'file-saver'
+// import XLSX from 'xlsx'
+
 export default defineComponent({
   setup() {
     const bookBtnHandler = (type: String) => {
@@ -81,7 +88,7 @@ export default defineComponent({
         isbn: '9787544788984',
         price: '78元',
         page: '583'
-      },  {
+      }, {
         img: 'https://img9.doubanio.com/view/subject/s/public/s8865866.jpg',
         title: '平凡的世界',
         author: '路遥',
@@ -126,7 +133,7 @@ export default defineComponent({
         isbn: '9787544788984',
         price: '78元',
         page: '583'
-      },  {
+      }, {
         img: 'https://img9.doubanio.com/view/subject/s/public/s8865866.jpg',
         title: '平凡的世界',
         author: '路遥',
@@ -173,9 +180,16 @@ export default defineComponent({
         page: '583'
       }
     ]
+    const importExcelHandler = () => {
+
+    }
+    const exportExcelHandler = () => {
+    }
     return {
       bookBtnHandler,
-      bookList
+      bookList,
+      exportExcelHandler,
+      importExcelHandler
     }
   }
 })
@@ -188,13 +202,18 @@ export default defineComponent({
 
   .table-book {
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .page-row {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+  }
+
+  .btn-section {
+    padding: 0 5%;
     margin-top: 20px;
   }
 }
