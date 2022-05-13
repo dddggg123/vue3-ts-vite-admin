@@ -34,8 +34,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-// import FileSaver from 'file-saver'
-// import XLSX from 'xlsx'
+import FileSaver from 'file-saver'
+import XLSX from 'xlsx'
 
 export default defineComponent({
   setup() {
@@ -184,6 +184,31 @@ export default defineComponent({
 
     }
     const exportExcelHandler = () => {
+      let xlsxParam = { raw: true }
+      // 设置当前日期
+      let time = new Date();
+      let year = time.getFullYear();
+      let month = time.getMonth() + 1;
+      let day = time.getDate();
+      let name = '数据列表' + year + '' + month + '' + day;
+      // console.log(name)
+      /* generate workbook object from table */
+      //  .excelTable要导出的是哪一个表格   注意这里的 excelTable 是要导出的表格的类名
+      let wb = XLSX.utils.table_to_book(document.querySelector('.table-book'), xlsxParam);
+      /* get binary string as output */
+      let wbout = XLSX.write(wb, {
+        bookType: 'xlsx',
+        bookSST: true,
+        type: 'array'
+      });
+      try {
+        //  name+'.xlsx'表示导出的excel表格名字
+        FileSaver.saveAs(
+          new Blob([wbout], { type: 'application/octet-stream' }),
+          name + '.xlsx'
+        );
+      } catch (e) {
+      }
     }
     return {
       bookBtnHandler,
