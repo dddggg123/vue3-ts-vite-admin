@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import store from "../store/index";
+import permissionList from "@/utils/router-permission";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -15,6 +16,38 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
     history: createWebHashHistory(),
     routes
+})
+
+router.beforeEach((to: any, from: any, next: any) => {
+    //未登录执行逻辑
+    if (!window.localStorage.getItem("token") && to.path !== "/login") {
+        return next({ path: "/login" });
+    };
+    //已登录执行逻辑
+    if (window.localStorage.getItem("token") && to.path == "/login") return next({ path: "/" });
+    //重新加载动态路由
+    if (!store.state.permissionList.length && to.path != '/login') {
+        console.log('用户权限:' + window.localStorage.getItem('permission'));
+        const routerArr: Array<object> = window.localStorage.getItem('permission') == 'adminer' ? permissionList : [];
+        // router.removeRoute('router');
+        return store.dispatch("FETCH_PERMISSION", routerArr).then(() => {
+            next({ ...to, replace: true });
+        });
+    } else {
+        next();
+    }
+})
+
+router.afterEach((to: any, from: any, next: any) => {
+    try {
+        //设置标题
+        if (to.meta.name) {
+            document.title = to.meta.name;
+        }
+    } catch (err) { }
+    let routerList = to.matched;
+    //顶部面包屑
+    store.commit("setCrumbList", routerList);
 })
 
 export const DynamicRoutes = [
@@ -130,66 +163,9 @@ export const DynamicRoutes = [
                     name: '其他模块',
                     icon: 'link'
                 }
-            }, {
-                path: 'setting',
-                name: 'setting',
-                component: () => import('@/pages/setting/setting.vue'),
-                meta: {
-                    name: '设置',
-                    icon: 'setting'
-                },
-                children: [
-                    {
-                        path: 'setting/info',
-                        name: 'setting-info',
-                        component: () => import('@/pages/setting/info/info.vue'),
-                        meta: {
-                            name: '个人信息',
-                            icon: 'user'
-                        },
-                    }, {
-                        path: 'setting/modify',
-                        name: 'setting-modify',
-                        component: () => import('@/pages/setting/modify/modify.vue'),
-                        meta: {
-                            name: '修改信息',
-                            icon: 'files'
-                        },
-                    }
-                ]
             }
         ]
     }
 ]
-
-router.beforeEach((to: any, from: any, next: any) => {
-    //未登录执行逻辑
-    if (!window.localStorage.getItem("token") && to.path !== "/login") {
-        return next({ path: "/login" });
-    };
-    //已登录执行逻辑
-    if (window.localStorage.getItem("token") && to.path == "/login") return next({ path: "/" });
-    //重新加载动态路由
-    if (!store.state.permissionList && to.path != '/login') {
-        // router.removeRoute('router');
-        return store.dispatch("FETCH_PERMISSION").then(() => {
-            next({ ...to, replace: true });
-        });
-    } else {
-        next();
-    }
-})
-
-router.afterEach((to: any, from: any, next: any) => {
-    try {
-        //设置标题
-        if (to.meta.name) {
-            document.title = to.meta.name;
-        }
-    } catch (err) { }
-    let routerList = to.matched;
-    //顶部面包屑
-    store.commit("setCrumbList", routerList);
-})
 
 export default router;

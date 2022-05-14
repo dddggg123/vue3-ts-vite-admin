@@ -19,7 +19,10 @@ const language = {
         联系我们: '联系我们',
         其他模块: '其他模块',
         full: '全屏',
-        signOut: '退出登录'
+        signOut: '退出登录',
+        设置: '设置',
+        个人信息: '个人信息',
+        修改信息: '修改信息'
     },
     "en-US": {
         nickName: 'adminer',
@@ -41,7 +44,10 @@ const language = {
         联系我们: 'Contact',
         其他模块: 'Other',
         full: 'Full Screen',
-        signOut: 'Sign Out'
+        signOut: 'Sign Out',
+        设置: 'Setting',
+        个人信息: 'User Info',
+        修改信息: 'Modify Info'
     }
 };
 export default language;

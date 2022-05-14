@@ -1,10 +1,9 @@
 // 后端路由
-import permissionList from "@/utils/router-permission";
 import { setDefaultRoute } from "@/utils/router-recursion";
 //固定路由
 import router, { DynamicRoutes } from "@/router/index";
 import view from "@/components/view/view.vue";
-import {defineAsyncComponent} from 'vue'
+import { defineAsyncComponent } from 'vue'
 
 function typeOf(obj: any): any {
     const toString: any = Object.prototype.toString;
@@ -47,30 +46,19 @@ function clone(data: any): any {
 }
 
 const actions = {
-    async FETCH_PERMISSION({ commit }: any) {
+    async FETCH_PERMISSION({ commit }: any, permissionList: Array<object>) {
         //处理需要动态的路由
         let routes: Array<any> = filterAsyncRouter(permissionList);
         //不需要动态的路由（深拷贝）
         let MainContainer = clone(DynamicRoutes).find(
             (v: any) => v.path === ""
         );
-        // let MainContainer = DynamicRoutes;
-        console.log('MainContainer:' + JSON.stringify(MainContainer));
         let children: Array<any> = [];
         children = MainContainer.children;
         //将两种路由结合生成左边的导航栏
         children = children.concat(routes);
         commit("SET_MENU", children);
         MainContainer.children = children;
-        /*
-                为所有有children的菜单路由设置第一个children为默认路由
-                主要是供面包屑用，防止点击面包屑后进入某个路由下的 '' 路由,比如/manage/
-                而我们的路由是
-                [
-                    /manage/menu1,
-                    /manage/menu2
-                ]
-            */
         setDefaultRoute([MainContainer]);
         /*  初始路由 */
         let initialRoutes = router.options.routes;
@@ -79,6 +67,13 @@ const actions = {
         // @ts-ignore //忽略提示
         commit("SET_PERMISSION", [...initialRoutes, ...DynamicRoutes]);
     },
+    /**
+     * 清空动态路由和菜单栏
+     */
+    async CLEAR_ALL_ROUTES({ commit }: any) {
+        commit("SET_MENU", []);
+        commit("SET_PERMISSION", []);
+    }
 };
 export const loadView = (view: String) => { // 路由懒加载
     return () => defineAsyncComponent(() => import(/* @vite-ignore */`@/pages/${view}`));

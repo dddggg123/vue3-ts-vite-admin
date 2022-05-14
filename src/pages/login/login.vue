@@ -5,7 +5,7 @@
     </div>
     <div class="login-section">
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
-        <el-tab-pane label="账号登录" name="account">
+        <el-tab-pane label="普通账号登录" name="account">
           <div class="account-section">
             <div class="input-section">
               <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
@@ -23,12 +23,28 @@
                 </template>
               </el-input>
             </div>
-            <div @click="loginHandler" class="login-btn">登录</div>
+            <div @click="loginHandler('user')" class="login-btn">登录</div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="扫码登录" name="qrcode">
-          <div class="qrcode-section">
-            <div @click="loginHandler" class="login-btn">登录</div>
+        <el-tab-pane label="管理员账号登录" name="qrcode">
+          <div class="account-section">
+            <div class="input-section">
+              <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
+                <template #prefix>
+                  <el-icon>
+                    <user />
+                  </el-icon>
+                </template>
+              </el-input>
+              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" placeholder="请输入密码">
+                <template #prefix>
+                  <el-icon>
+                    <connection />
+                  </el-icon>
+                </template>
+              </el-input>
+            </div>
+            <div @click="loginHandler('adminer')" class="login-btn">登录</div>
           </div>
         </el-tab-pane>
       </el-tabs>
@@ -37,9 +53,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue'
-import type { TabsPaneContext } from 'element-plus'
-import { useRouter } from 'vue-router'
+import { defineComponent, ref, Ref } from 'vue';
+import type { TabsPaneContext } from 'element-plus';
+import { useRouter } from 'vue-router';
+
 export default defineComponent({
   setup() {
     const currentTab = ref('account');
@@ -47,9 +64,10 @@ export default defineComponent({
       console.log(tab, event);
     }
     const router = useRouter();
-    const loginHandler = () => {
+    const loginHandler = (type: string) => {
       // console.log('账号:' + account.value);
       // console.log('密码:' + password.value);
+      window.localStorage.setItem('permission', type);
       window.localStorage.setItem('token', 'vue3-ts-vite-admin');
       setTimeout(() => {
         router.push('/');

@@ -9,7 +9,6 @@
 import { defineComponent, reactive, onMounted, computed } from "vue";
 import Menu from "@/components/menu/menu.vue";
 import Navbar from "@/components/navbar/navbar.vue";
-import { DynamicRoutes } from "../../router/index";
 import { useRouter } from 'vue-router';
 import { useStore } from "vuex"
 

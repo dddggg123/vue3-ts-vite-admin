@@ -89,6 +89,12 @@ export default defineComponent({
     .is-active {
       background-color: #409eff;
     }
+
+    .el-menu-item-group {
+      .el-menu-item-group__title {
+        padding-top: 0;
+      }
+    }
   }
 
   // .el-menu .el-menu-item:hover{

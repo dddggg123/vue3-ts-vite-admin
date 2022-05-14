@@ -56,13 +56,6 @@ import screenfull from "screenfull";
 
 export default defineComponent({
   setup() {
-    const handleCommand = (command: string) => {
-      console.log('我点击了:' + command);
-      window.localStorage.clear();
-      setTimeout(() => {
-        router.push('/login');
-      }, 500);
-    }
     const router = useRouter();
     const store = useStore();
     let state: any = reactive({
@@ -70,6 +63,13 @@ export default defineComponent({
     });
     let fullScreenHandler = () => {
       screenfull.isEnabled && screenfull.toggle();
+    }
+    const handleCommand = (command: string) => {
+      window.localStorage.clear();
+      store.dispatch('CLEAR_ALL_ROUTES');
+      setTimeout(() => {
+        router.push('/login');
+      }, 500);
     }
     return {
       state,

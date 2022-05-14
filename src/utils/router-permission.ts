@@ -9,5 +9,33 @@
     }
 */ 
 const permissionList: Array<any> = [
+    {
+        path: 'setting',
+        name: 'setting',
+        component: () => import('@/pages/setting/setting.vue'),
+        meta: {
+            name: '设置',
+            icon: 'setting'
+        },
+        children: [
+            {
+                path: 'setting/info',
+                name: 'setting-info',
+                component: () => import('@/pages/setting/info/info.vue'),
+                meta: {
+                    name: '个人信息',
+                    icon: 'user'
+                },
+            }, {
+                path: 'setting/modify',
+                name: 'setting-modify',
+                component: () => import('@/pages/setting/modify/modify.vue'),
+                meta: {
+                    name: '修改信息',
+                    icon: 'files'
+                },
+            }
+        ]
+    }
 ]
 export default permissionList
