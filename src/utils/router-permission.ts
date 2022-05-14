@@ -12,7 +12,7 @@ const permissionList: Array<any> = [
     {
         path: 'setting',
         name: 'setting',
-        component: () => import('@/pages/setting/setting.vue'),
+        component: '',
         meta: {
             name: '设置',
             icon: 'setting'
@@ -21,7 +21,7 @@ const permissionList: Array<any> = [
             {
                 path: 'setting/info',
                 name: 'setting-info',
-                component: () => import('@/pages/setting/info/info.vue'),
+                component: () => import('@/pages/setting/info.vue'),
                 meta: {
                     name: '个人信息',
                     icon: 'user'
@@ -29,7 +29,7 @@ const permissionList: Array<any> = [
             }, {
                 path: 'setting/modify',
                 name: 'setting-modify',
-                component: () => import('@/pages/setting/modify/modify.vue'),
+                component: () => import('@/pages/setting/modify.vue'),
                 meta: {
                     name: '修改信息',
                     icon: 'files'

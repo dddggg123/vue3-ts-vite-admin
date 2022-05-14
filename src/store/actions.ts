@@ -76,8 +76,9 @@ const actions = {
     }
 };
 export const loadView = (view: String) => { // 路由懒加载
-    return () => defineAsyncComponent(() => import(/* @vite-ignore */`@/pages/${view}`));
+    return view;
 };
+
 //递归处理后端数据
 function filterAsyncRouter(asyncRouterMap: Array<any>) {
     return asyncRouterMap.filter((route: any) => {
