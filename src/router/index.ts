@@ -108,14 +108,6 @@ export const DynamicRoutes = [
                     icon: 'grid'
                 }
             }, {
-                path: 'contact',
-                name: 'contact',
-                component: () => import('@/pages/contact/contact.vue'),
-                meta: {
-                    name: '联系我们',
-                    icon: 'phone'
-                }
-            }, {
                 path: 'map',
                 name: 'map',
                 component: () => import('@/pages/map/map.vue'),
@@ -162,6 +154,14 @@ export const DynamicRoutes = [
                 meta: {
                     name: '其他模块',
                     icon: 'link'
+                }
+            }, {
+                path: 'contact',
+                name: 'contact',
+                component: () => import('@/pages/contact/contact.vue'),
+                meta: {
+                    name: '联系作者',
+                    icon: 'phone'
                 }
             }
         ]
