@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">这里是首页界面 {{count}}</div>
+  <div class="home-container">Hello World!</div>
 </template>
 
 <script lang="ts">
