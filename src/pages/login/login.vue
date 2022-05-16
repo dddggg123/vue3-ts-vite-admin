@@ -8,7 +8,7 @@
         <el-tab-pane label="普通账号登录" name="account">
           <div class="account-section">
             <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
+              <el-input v-model="account" class="w-50 m-2" placeholder="请输入普通账号">
                 <template #prefix>
                   <el-icon>
                     <user />
@@ -29,7 +29,7 @@
         <el-tab-pane label="管理员账号登录" name="qrcode">
           <div class="account-section">
             <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" placeholder="请输入账号">
+              <el-input v-model="account" class="w-50 m-2" placeholder="请输入管理员账号">
                 <template #prefix>
                   <el-icon>
                     <user />
@@ -48,6 +48,9 @@
           </div>
         </el-tab-pane>
       </el-tabs>
+      <div class="footer-section">
+        <span class="version">版本号：1.0.22051601</span>
+      </div>
     </div>
   </div>
 </template>
@@ -107,6 +110,16 @@ export default defineComponent({
       color: #fff;
       font-size: 35px;
       font-weight: 500;
+    }
+  }
+
+  .footer-section {
+    text-align: center;
+    padding-top: 10px;
+
+    .version {
+      font-size: 13px;
+      color: #a4a4a4;
     }
   }
 

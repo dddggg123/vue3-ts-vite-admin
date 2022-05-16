@@ -1,5 +1,7 @@
 <template>
-  <div class="iframe-container">这里是iframe界面</div>
+  <div class="iframe-container">
+    这里是iframe界面
+  </div>
 </template>
 
 <script lang="ts">

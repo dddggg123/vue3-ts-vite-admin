@@ -20,5 +20,12 @@ export default defineConfig({
       replacement: path.resolve(__dirname, 'src/view')
     }]
   },
-  plugins: [vue()]
+  plugins: [vue()],
+  server: {
+    proxy: {
+      '/ws': {
+        target: 'https://apis.map.qq.com'
+      }
+    }
+  }
 })
