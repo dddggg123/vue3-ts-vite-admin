@@ -218,7 +218,6 @@ export default defineComponent({
   padding-bottom: 20px;
 
   .remark-section {
-    width: 100%;
     margin-top: 20px;
     padding: 0 5%;
 

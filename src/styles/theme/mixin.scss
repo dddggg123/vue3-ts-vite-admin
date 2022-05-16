@@ -34,6 +34,15 @@
             background-color: $select-bg-ming-theme1  !important;
             color: $active-theme1  !important;
         }
+
+        .el-sub-menu__title {
+            background-color: $bg-ming-theme1  !important;
+            color: $font-color-ming-theme1  !important;
+        }
+
+        .el-menu-item-group {
+            background-color: $bg-ming-theme1  !important;
+        }
     }
 
     [current-theme="theme2"] & {
@@ -52,6 +61,15 @@
         .is-active {
             background-color: $select-bg-ming-theme2  !important;
             color: $active-theme2  !important;
+        }
+
+        .el-sub-menu__title {
+            background-color: $bg-ming-theme2  !important;
+            color: $font-color-ming-theme2  !important;
+        }
+
+        .el-menu-item-group {
+            background-color: $bg-ming-theme2  !important;
         }
     }
 
@@ -72,6 +90,15 @@
             background-color: $select-bg-ming-theme3  !important;
             color: $active-theme3  !important;
         }
+
+        .el-sub-menu__title {
+            background-color: $bg-ming-theme3  !important;
+            color: $font-color-ming-theme3  !important;
+        }
+
+        .el-menu-item-group {
+            background-color: $bg-ming-theme3  !important;
+        }
     }
 
     [current-theme="theme4"] & {
@@ -90,6 +117,15 @@
         .is-active {
             background-color: $select-bg-ming-theme4  !important;
             color: $active-theme4  !important;
+        }
+
+        .el-sub-menu__title {
+            background-color: $bg-ming-theme4  !important;
+            color: $font-color-ming-theme4  !important;
+        }
+
+        .el-menu-item-group {
+            background-color: $bg-ming-theme4  !important;
         }
     }
 }

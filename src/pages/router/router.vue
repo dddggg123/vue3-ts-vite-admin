@@ -24,7 +24,6 @@ export default defineComponent({
   height: 100%;
 
   .remark-section {
-    width: 100%;
     margin-top: 20px;
     padding: 0 5%;
 
