@@ -1,12 +1,5 @@
 <template>
   <div class="theme-container">
-    <p class="theme-title">选择项目主题色</p>
-    <div class="color-pick-section">
-      <div v-for="(item, index) in themeArr" :style="{ color: item.color, backgroundColor: item.bgColor }"
-        @click="themeItemHandler(index)" class="color-item">
-        <span class="color-title">{{ item.title }}</span>
-      </div>
-    </div>
     <div class="remark-section">
       <div class="remark-content">
         <p class="remark-title">使用说明</p>
@@ -15,6 +8,13 @@
         <p class="reamrk-desc">3、具体元素css代码可在@/styles/theme/mixin.scss文件中进行配置</p>
         <p class="reamrk-desc">4、通过使用window.document.documentElement.setAttribute给元素设置key:value，动态设置当前主题色</p>
         <p class="reamrk-desc">5、同理元素的主题字体大小也可以通过类似的方法来全局实现</p>
+      </div>
+    </div>
+    <p class="theme-title">选择项目主题色</p>
+    <div class="color-pick-section">
+      <div v-for="(item, index) in themeArr" :style="{ color: item.color, backgroundColor: item.bgColor }"
+        @click="themeItemHandler(index)" class="color-item">
+        <span class="color-title">{{ item.title }}</span>
       </div>
     </div>
   </div>
@@ -62,20 +62,12 @@ export default defineComponent({
 .theme-container {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
 
   .remark-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 150px;
+    margin-top: 20px;
+    padding: 0 5%;
 
     .remark-content {
-      width: 50%;
       text-align: left;
 
       .remark-title {
@@ -91,14 +83,17 @@ export default defineComponent({
   }
 
   .theme-title {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 600;
+    padding: 0 5%;
+    margin-top: 40px;
   }
 
   .color-pick-section {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0 5%;
 
     .color-item {
       background-color: blue;
@@ -111,6 +106,10 @@ export default defineComponent({
       align-items: center;
       margin: 0 10px;
       cursor: pointer;
+
+      &:first-child {
+        margin-left: 0px;
+      }
 
       .color-title {
         font-size: 18px;
