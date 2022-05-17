@@ -5,17 +5,17 @@
     </div>
     <div class="login-section">
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
-        <el-tab-pane label="普通账号登录" name="account">
+        <el-tab-pane :label="$t('普通账号登录')" name="account">
           <div class="account-section">
             <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" placeholder="请输入普通账号">
+              <el-input v-model="account" class="w-50 m-2" :placeholder="$t('请输入普通账号')">
                 <template #prefix>
                   <el-icon>
                     <user />
                   </el-icon>
                 </template>
               </el-input>
-              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" placeholder="请输入密码">
+              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" :placeholder="$t('请输入密码')">
                 <template #prefix>
                   <el-icon>
                     <connection />
@@ -23,20 +23,20 @@
                 </template>
               </el-input>
             </div>
-            <div @click="loginHandler('user')" class="login-btn">登录</div>
+            <div @click="loginHandler('user')" class="login-btn">{{$t('登录')}}</div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="管理员账号登录" name="qrcode">
+        <el-tab-pane :label="$t('管理员账号登录')" name="qrcode">
           <div class="account-section">
             <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" placeholder="请输入管理员账号">
+              <el-input v-model="account" class="w-50 m-2" :placeholder="$t('请输入管理员账号')">
                 <template #prefix>
                   <el-icon>
                     <user />
                   </el-icon>
                 </template>
               </el-input>
-              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" placeholder="请输入密码">
+              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" :placeholder="$t('请输入密码')">
                 <template #prefix>
                   <el-icon>
                     <connection />
@@ -44,12 +44,12 @@
                 </template>
               </el-input>
             </div>
-            <div @click="loginHandler('adminer')" class="login-btn">登录</div>
+            <div @click="loginHandler('adminer')" class="login-btn">{{$t('登录')}}</div>
           </div>
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">版本号：1.0.22051601</span>
+        <span class="version">{{$t('版本号')}}：1.0.22051701</span>
       </div>
     </div>
   </div>

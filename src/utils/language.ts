@@ -22,7 +22,14 @@ const language = {
         signOut: '退出登录',
         设置: '设置',
         个人信息: '个人信息',
-        修改信息: '修改信息'
+        修改信息: '修改信息',
+        普通账号登录: '普通账号登录',
+        管理员账号登录: '管理员账号登录',
+        版本号: '版本号',
+        请输入普通账号: '请输入普通账号',
+        请输入管理员账号: '请输入管理员账号',
+        请输入密码: '请输入密码',
+        登录: '登录'
     },
     "en-US": {
         nickName: 'adminer',
@@ -47,7 +54,14 @@ const language = {
         signOut: 'Sign Out',
         设置: 'Setting',
         个人信息: 'User Info',
-        修改信息: 'Modify Info'
+        修改信息: 'Modify Info',
+        普通账号登录: 'Common Account',
+        管理员账号登录: 'Admin Account',
+        版本号: 'version',
+        请输入普通账号: 'input common account',
+        请输入管理员账号: 'input admin account',
+        请输入密码: 'input password',
+        登录: 'Login in'
     }
 };
 export default language;
