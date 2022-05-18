@@ -10,11 +10,17 @@ import "@/styles/theme/index.scss";
 // 国际化
 import { createI18n } from "vue-i18n";
 import language from "../src/utils/language";
+// 微前端
+import apps from './micro-app'
+import { registerMicroApps, addGlobalUncaughtErrorHandler } from 'qiankun'
+import './actions'
 
 const international = createI18n({
    locale: "zh-CN", //默认显示的语言
    messages: language
 });
+// 注册微应用
+// const app = registerMicroApps(apps)
 
 const app = createApp(App)
 for (const name in ElIcons){
