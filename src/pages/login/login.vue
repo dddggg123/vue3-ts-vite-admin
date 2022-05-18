@@ -49,7 +49,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{$t('版本号')}}：1.0.22051701</span>
+        <span class="version">{{$t('版本号')}}：1.0.22051801</span>
       </div>
     </div>
   </div>
