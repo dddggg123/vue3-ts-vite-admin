@@ -29,7 +29,9 @@ const language = {
         请输入普通账号: '请输入普通账号',
         请输入管理员账号: '请输入管理员账号',
         请输入密码: '请输入密码',
-        登录: '登录'
+        登录: '登录',
+        子应用1: '子应用1',
+        子应用2: '子应用2'
     },
     "en-US": {
         nickName: 'adminer',
@@ -61,7 +63,9 @@ const language = {
         请输入普通账号: 'input common account',
         请输入管理员账号: 'input admin account',
         请输入密码: 'input password',
-        登录: 'Login in'
+        登录: 'Login in',
+        子应用1: 'SubApp One',
+        子应用2: 'SubApp Two'
     }
 };
 export default language;

@@ -9,7 +9,7 @@ const microApps = [
   const apps = microApps.map(app => {
     return {
       ...app,
-      container: '#app-micro',
+      container: '#micro-content',
       props: {
         routerBase: app.activeRule // 下发基础路由
       },

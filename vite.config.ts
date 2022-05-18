@@ -28,6 +28,6 @@ export default defineConfig({
       }
     },
     open: true,
-    port: 6880
+    port: 6888
   }
 })

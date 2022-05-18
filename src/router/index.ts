@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router';
 import store from "../store/index";
 import permissionList from "@/utils/router-permission";
 
@@ -34,6 +34,12 @@ router.beforeEach((to: any, from: any, next: any) => {
             next({ ...to, replace: true });
         });
     } else {
+        // 手动修改history的state
+        // if (!history.state.current) {
+        //     Object.assign(history.state, {
+        //         current: from.fullPath
+        //     })
+        // }
         next();
     }
 })
@@ -102,7 +108,7 @@ export const DynamicRoutes = [
             }, {
                 path: 'micro',
                 name: 'micro',
-                component: () => import('@/pages/micro/micro.vue'),
+                component: () => import('@/pages/micro/micro-app-one.vue'),
                 meta: {
                     name: '微前端',
                     icon: 'grid'

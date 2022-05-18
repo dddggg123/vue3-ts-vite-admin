@@ -10,7 +10,7 @@
 */ 
 const permissionList: Array<any> = [
     {
-        path: 'setting',
+        path: '',
         name: 'setting',
         component: '',
         meta: {
