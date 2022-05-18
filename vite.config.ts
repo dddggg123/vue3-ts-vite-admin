@@ -26,6 +26,8 @@ export default defineConfig({
       '/ws': {
         target: 'https://apis.map.qq.com'
       }
-    }
+    },
+    open: true,
+    port: 6880
   }
 })

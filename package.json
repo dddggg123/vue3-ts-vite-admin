@@ -19,7 +19,8 @@
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
     "wangeditor": "^4.7.5",
-    "xlsx": "^0.17.0"
+    "xlsx": "^0.17.0",
+    "qiankun": "^2.6.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
