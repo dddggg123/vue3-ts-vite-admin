@@ -175,6 +175,7 @@ export default defineComponent({
     .breadcrumb-section {
       width: 15%;
       padding-left: 20px;
+      text-align: left;
 
       .el-breadcrumb {
         height: 50px;

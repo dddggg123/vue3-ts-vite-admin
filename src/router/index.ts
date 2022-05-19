@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes
 })
 
@@ -108,11 +108,31 @@ export const DynamicRoutes = [
             }, {
                 path: 'micro',
                 name: 'micro',
-                component: () => import('@/pages/micro/micro-app-one.vue'),
+                component: () => import('@/pages/micro/micro.vue'),
                 meta: {
                     name: '微前端',
                     icon: 'grid'
-                }
+                },
+                children: [
+                    {
+                        path: 'app-one',
+                        name: 'micro-app-one',
+                        component: () => import('@/pages/micro/micro-app-one.vue'),
+                        meta: {
+                            name: '子应用1',
+                            icon: 'TopLeft'
+                        }
+                    },
+                    {
+                        path: 'app-two',
+                        name: 'micro-app-two',
+                        component: () => import('@/pages/micro/micro-app-two.vue'),
+                        meta: {
+                            name: '子应用2',
+                            icon: 'TopRight'
+                        }
+                    }
+                ]
             }, {
                 path: 'map',
                 name: 'map',

@@ -2,7 +2,7 @@ const microApps = [
     {
       name: 'app-vue',
       entry: import.meta.env.VITE_APP_SUB_VUE as string,
-      activeRule: '/app-vue'
+      activeRule: '/micro/app-one'
     }
   ]
   
