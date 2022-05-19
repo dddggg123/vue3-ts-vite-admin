@@ -11,9 +11,6 @@ import {onMounted} from 'vue';
 
 const router = useRouter()
 onMounted(() => {
-  // nextTick(() => {
-  //   router.push('/app-vue')
-  // })
 })
 </script>
 
