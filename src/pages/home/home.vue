@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">Hello World!</div>
+  <div class="home-container">部署测试</div>
 </template>
 
 <script lang="ts">
