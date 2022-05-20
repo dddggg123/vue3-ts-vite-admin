@@ -1,7 +1,6 @@
 <template>
-  <div class="micro-container">这里是微前端界面2
-    <div id="micro-content">
-    </div>
+  <div class="micro-container">
+    <div id="micro-content"></div>
   </div>
 </template>
 
