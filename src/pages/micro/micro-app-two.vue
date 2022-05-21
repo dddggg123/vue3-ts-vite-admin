@@ -18,6 +18,10 @@ onMounted(() => {
   width: 100%;
   height: 100%;
 
+  #__qiankun_microapp_wrapper_for_micro_2__ {
+    height: 100%;
+  }
+
   #micro-content {
     width: 100%;
     height: 100%;
