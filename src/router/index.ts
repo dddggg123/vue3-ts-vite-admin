@@ -52,7 +52,9 @@ router.afterEach((to: any, from: any, next: any) => {
         }
     } catch (err) { }
     let arr = to.matched;
-    let routerList = arr.splice(1);
+    let routerList = [ ...arr ];
+    routerList = routerList.splice(1);
+    // let routerList = to.matched;
     //顶部面包屑
     store.commit("setCrumbList", routerList);
      //目前左边导航选中的active
