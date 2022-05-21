@@ -2,14 +2,14 @@
   <div class="nav-container">
     <aside class="nav-top">
       <div class="breadcrumb-section">
-        <el-breadcrumb separator="/">
+        <el-breadcrumb>
           <transition-group name="breadcrumb">
             <!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
             <el-breadcrumb-item v-for="(route, i) in state.crumbList" :key="route.name" :to="{ name: route.name }"
               :class="{
                 'is-last-link': i == state.crumbList.length - 1,
               }">
-              <span v-if="route.name != 'home'">{{ $t(route.meta.name) }}</span>
+              <span>{{ $t(route.meta.name) }}</span>
             </el-breadcrumb-item>
           </transition-group>
         </el-breadcrumb>
@@ -180,6 +180,16 @@ export default defineComponent({
       .el-breadcrumb {
         height: 50px;
         line-height: 50px;
+
+        // .el-breadcrumb__item {
+        //   .el-breadcrumb__separator {
+        //     visibility: hidden;
+
+        //     &:first-child {
+        //       visibility: hidden;
+        //     }
+        //   }
+        // }
       }
 
       .breadcrumb-enter,

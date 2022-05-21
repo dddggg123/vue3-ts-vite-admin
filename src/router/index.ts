@@ -51,9 +51,12 @@ router.afterEach((to: any, from: any, next: any) => {
             document.title = to.meta.name;
         }
     } catch (err) { }
-    let routerList = to.matched;
+    let arr = to.matched;
+    let routerList = arr.splice(1);
     //顶部面包屑
     store.commit("setCrumbList", routerList);
+     //目前左边导航选中的active
+     store.commit("SET_CURRENT_MENU", to.name);
 })
 
 export const DynamicRoutes = [

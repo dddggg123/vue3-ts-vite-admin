@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="title-section">
-      <p class="title">Vue3-TypeScript-Vite-admin</p>
+      <p class="title">Vue3-TypeScript-Vite-Admin</p>
     </div>
     <div class="login-section">
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
@@ -49,7 +49,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{$t('版本号')}}：1.0.22051801</span>
+        <span class="version">{{$t('版本号')}}：1.0.22052101</span>
       </div>
     </div>
   </div>

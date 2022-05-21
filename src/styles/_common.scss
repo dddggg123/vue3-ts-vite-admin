@@ -18,17 +18,19 @@ html {
 .el-breadcrumb {
     display: inline-block;
     vertical-align: middle;
-    font-size: 14px;
     margin-left: 5px;
+
     .el-breadcrumb__inner {
+        font-size: 17px;
+
         &.is-link {
             display: inline-block;
             font-weight: normal;
-            color: #424040 !important;
+            color: #1d99e3 !important;
         }
     }
     .is-last-link .is-link {
-        font-weight: normal;
-        color: #999 !important;
+        font-weight: 600;
+        color: #000 !important;
     }
 }

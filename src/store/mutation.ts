@@ -10,6 +10,10 @@ const mutations = {
     /* 完整的路由表 */
     SET_PERMISSION(state: any, routes: Array<any>) {
         state.permissionList = routes;
+    },
+    //当前选中的导航
+    SET_CURRENT_MENU(state:any, currentMenu:string) {
+        state.currentMenu = currentMenu
     }
 }
 export default mutations

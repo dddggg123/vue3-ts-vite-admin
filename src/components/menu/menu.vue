@@ -64,7 +64,7 @@ export default defineComponent({
     let state = reactive({
       menuList: props.menuList,
       isSidebarNavCollapse: computed(() => store.getters.getIsSidebarNavCollapse),
-      currentMenu: "home",
+      currentMenu: computed(()=>store.getters.getCurrentMenu)
     });
     return {
       navigateToRoute,
