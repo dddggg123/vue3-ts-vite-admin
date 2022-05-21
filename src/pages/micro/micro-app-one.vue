@@ -1,5 +1,5 @@
 <template>
-  <div class="micro-container">
+  <div class="micro-one-container">
     <div id="micro-content"></div>
   </div>
 </template>
@@ -14,8 +14,14 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.micro-container {
+.micro-one-container {
   width: 100%;
-  height: 100%;
+  padding: 0 5%;
+
+  #__qiankun_microapp_wrapper_for_micro_1__ {
+    width: 500px;
+    height: 800px;
+    background-color: #f0f0f0;
+  }
 }
 </style>

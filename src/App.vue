@@ -26,8 +26,4 @@ start({
 </script>
 
 <style lang="scss">
-#micro-content {
-  width: 500px;
-  height: 500px;
-}
 </style>
