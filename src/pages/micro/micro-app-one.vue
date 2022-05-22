@@ -3,8 +3,8 @@
     <div id="micro-content"></div>
     <div class="main-content">
       <h1>主应用操作界面</h1>
-      <el-button class="btn" @click="mainBtnHandler" type="primary">主应用控制子应用跳转</el-button>
-      <!-- <el-button class="btn" @click="mainBtnHandlerWithParam" type="primary">主应用控制子应用跳转并传参1</el-button> -->
+      <!-- <el-button class="btn" @click="mainBtnHandler" type="primary">主应用控制子应用跳转</el-button> -->
+      <el-button class="btn" @click="mainBtnHandlerWithParam" type="primary">主应用控制子应用跳转并传参: hello</el-button>
     </div>
   </div>
 </template>
@@ -17,14 +17,16 @@ const router = useRouter()
 onMounted(() => {
 })
 function mainBtnHandler () {
-  window.history.pushState({
-    user: {}
-  }, '', '/micro/app-one#/about')
+  // window.history.pushState({}, '', '/micro/app-one#/about')
+  router.push('/micro/app-one#/about');
 }
 function mainBtnHandlerWithParam () {
-  window.history.pushState({
-    msg: 'hello'
-  }, '', '/micro/app-one#/about?msg=hello')
+  // window.history.pushState({
+  //   msg: 'hello'
+  // }, '', '/micro/app-one#/about')
+  // router.push({path: '/micro/app-one#/about', query: {msg: 'hello'}});
+  localStorage.setItem('msg', 'hello');
+  router.push('/micro/app-one#/about');
 }
 </script>
 
@@ -54,7 +56,7 @@ function mainBtnHandlerWithParam () {
     flex-direction: column;
     
     .btn {
-      width: 220px;
+      width: 250px;
       height: 40px;
       border-radius: 10px;
       margin-top: 20px;
