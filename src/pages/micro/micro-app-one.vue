@@ -2,6 +2,7 @@
   <div class="micro-one-container">
     <div id="micro-content"></div>
     <div class="main-content">
+      <h1>主应用操作界面</h1>
       <el-button class="btn" @click="mainBtnHandler" type="primary">主应用控制子应用跳转</el-button>
       <!-- <el-button class="btn" @click="mainBtnHandlerWithParam" type="primary">主应用控制子应用跳转并传参1</el-button> -->
     </div>
