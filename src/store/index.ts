@@ -6,7 +6,7 @@ export default createStore({
     state: {
         permissionList: [] /** 所有路由 */,
         sidebarMenu: [] /** 导航菜单 */,
-        // currentMenu: "" /** 当前active导航菜单 */,
+        currentMenu: 'home' /** 当前active导航菜单 */,
         isSidebarNavCollapse: false,
         /* 面包屑导航列表 */
         crumbList: [],
