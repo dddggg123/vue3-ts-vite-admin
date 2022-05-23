@@ -48,11 +48,11 @@ function mainBtnHandlerWithParam2 () {
 
   #micro-content {
     width: 500px;
-    height: 800px;
+    height: 600px;
 
     #__qiankun_microapp_wrapper_for_micro_1__ {
       width: 500px;
-      height: 800px;
+      height: 600px;
       background-color: #f0f0f0;
     }
   }
