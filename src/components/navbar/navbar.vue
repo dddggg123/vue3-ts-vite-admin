@@ -94,6 +94,7 @@ export default defineComponent({
     right: 0;
     bottom: 0;
     overflow: scroll;
+    padding: 20px;
   }
 
   .nav-top {
