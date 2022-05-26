@@ -1,11 +1,11 @@
 <template>
   <div class="other-container">
-    <div ref="line" class="screen-item"></div>
-    <div ref="pie" class="screen-item"></div>
-    <div ref="heatmap" class="screen-item"></div>
     <div ref="radar" class="screen-item"></div>
-    <div ref="funnel" class="screen-item"></div>
     <div ref="gauge" class="screen-item"></div>
+    <div ref="pie" class="screen-item"></div>
+    <div ref="funnel" class="screen-item"></div>
+    <div ref="heatmap" class="screen-item"></div>
+    <div ref="line" class="screen-item"></div>
   </div>
 </template>
 
@@ -35,27 +35,27 @@ function initGaugeChart() {
   // 指定图表的配置项和数据
   let option = {
     tooltip: {
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  series: [
-    {
-      name: 'Pressure',
-      type: 'gauge',
-      progress: {
-        show: true
-      },
-      detail: {
-        valueAnimation: true,
-        formatter: '{value}'
-      },
-      data: [
-        {
-          value: 50,
-          name: 'SCORE'
-        }
-      ]
-    }
-  ]
+      formatter: '{a} <br/>{b} : {c}%'
+    },
+    series: [
+      {
+        name: 'Pressure',
+        type: 'gauge',
+        progress: {
+          show: true
+        },
+        detail: {
+          valueAnimation: true,
+          formatter: '{value}'
+        },
+        data: [
+          {
+            value: 50,
+            name: 'SCORE'
+          }
+        ]
+      }
+    ]
   };
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
