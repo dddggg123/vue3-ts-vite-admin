@@ -77,6 +77,7 @@ function mainBtnHandlerWithParam2() {
   .micro-one-content {
     display: flex;
     margin-top: 20px;
+    padding-left: 5%;
 
     #micro-content {
       width: 500px;
