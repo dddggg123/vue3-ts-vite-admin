@@ -6,75 +6,126 @@
     <div class="login-section">
       <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
         <el-tab-pane :label="$t('普通账号登录')" name="account">
-          <div class="account-section">
-            <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" :placeholder="$t('请输入普通账号')">
-                <template #prefix>
-                  <el-icon>
-                    <user />
-                  </el-icon>
-                </template>
-              </el-input>
-              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" :placeholder="$t('请输入密码')">
-                <template #prefix>
-                  <el-icon>
-                    <connection />
-                  </el-icon>
-                </template>
-              </el-input>
+          <el-form ref="ruleFormRef1" :model="form1" :rules="rule1">
+            <div class="account-section">
+              <div class="input-section">
+                <el-form-item prop="account1">
+                  <el-input v-model="form1.account1" class="w-50 m-2" :placeholder="$t('请输入普通账号')">
+                    <template #prefix>
+                      <el-icon>
+                        <user />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item prop="password1">
+                  <el-input style="margin-top: 20px;" v-model="form1.password1" class="w-50 m-2"
+                    :placeholder="$t('请输入密码')">
+                    <template #prefix>
+                      <el-icon>
+                        <connection />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+              </div>
+              <div @click="loginHandler('user', ruleFormRef1)" class="login-btn">{{ $t('登录') }}</div>
             </div>
-            <div @click="loginHandler('user')" class="login-btn">{{$t('登录')}}</div>
-          </div>
+          </el-form>
         </el-tab-pane>
         <el-tab-pane :label="$t('管理员账号登录')" name="qrcode">
-          <div class="account-section">
-            <div class="input-section">
-              <el-input v-model="account" class="w-50 m-2" :placeholder="$t('请输入管理员账号')">
-                <template #prefix>
-                  <el-icon>
-                    <user />
-                  </el-icon>
-                </template>
-              </el-input>
-              <el-input style="margin-top: 20px;" v-model="password" class="w-50 m-2" :placeholder="$t('请输入密码')">
-                <template #prefix>
-                  <el-icon>
-                    <connection />
-                  </el-icon>
-                </template>
-              </el-input>
+          <el-form ref="ruleFormRef2" :model="form2" :rules="rule2">
+            <div class="account-section">
+              <div class="input-section">
+                <el-form-item prop="account2">
+                  <el-input v-model="form2.account2" class="w-50 m-2" :placeholder="$t('请输入管理员账号')">
+                    <template #prefix>
+                      <el-icon>
+                        <user />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item prop="password2">
+                  <el-input style="margin-top: 20px;" v-model="form2.password2" class="w-50 m-2"
+                    :placeholder="$t('请输入密码')">
+                    <template #prefix>
+                      <el-icon>
+                        <connection />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+              </div>
+              <div @click="loginHandler('adminer', ruleFormRef2)" class="login-btn">{{ $t('登录') }}</div>
             </div>
-            <div @click="loginHandler('adminer')" class="login-btn">{{$t('登录')}}</div>
-          </div>
+          </el-form>
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{$t('版本号')}}：1.0.22052601</span>
+        <span class="version">{{ $t('版本号') }}：1.0.22052602</span>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue';
+import { defineComponent, ref, Ref, reactive } from 'vue';
 import type { TabsPaneContext } from 'element-plus';
 import { useRouter } from 'vue-router';
+import type { FormInstance } from 'element-plus'
 
 export default defineComponent({
   setup() {
+    const ruleFormRef1 = ref<FormInstance>()
+    const ruleFormRef2 = ref<FormInstance>()
+    const accountRule = (rule: any, value: any, callback: any) => {
+      if (value === '') {
+        callback(new Error('账号不能为空，可以随意填'))
+      } else {
+        callback();
+      }
+    }
+    const passwordRule = (rule: any, value: any, callback: any) => {
+      if (value === '') {
+        callback(new Error('密码不能为空，可以随意填'))
+      } else {
+        callback();
+      }
+    }
+    const form1 = reactive({
+      account1: '',
+      password1: ''
+    })
+    const rule1 = reactive({
+      account1: [{ validator: accountRule, trigger: 'blur', require: true }],
+      password1: [{ validator: passwordRule, trigger: 'blur', require: true }]
+    })
+    const form2 = reactive({
+      account2: '',
+      password2: ''
+    })
+    const rule2 = reactive({
+      account2: [{ validator: accountRule, trigger: 'blur', require: true }],
+      password2: [{ validator: passwordRule, trigger: 'blur', require: true }]
+    })
+    
     const currentTab = ref('account');
     const tabChangeHandler = (tab: TabsPaneContext, event: Event) => {
       console.log(tab, event);
     }
     const router = useRouter();
-    const loginHandler = (type: string) => {
-      // console.log('账号:' + account.value);
-      // console.log('密码:' + password.value);
-      window.localStorage.setItem('permission', type);
-      window.localStorage.setItem('token', 'vue3-ts-vite-admin');
-      setTimeout(() => {
-        router.push('/');
-      }, 500);
+    const loginHandler = (type: string, form: FormInstance | undefined) => {
+      if (!form) return;
+      form.validate((valid) => {
+        if (valid) {
+          window.localStorage.setItem('permission', type);
+          window.localStorage.setItem('token', 'vue3-ts-vite-admin');
+          setTimeout(() => {
+            router.push('/home');
+          }, 500);
+        } else { }
+      })
     }
     const account: Ref<String> = ref('');
     const password: Ref<String> = ref('');
@@ -84,7 +135,13 @@ export default defineComponent({
       tabChangeHandler,
       loginHandler,
       account,
-      password
+      password,
+      form1,
+      form2,
+      rule1,
+      rule2,
+      ruleFormRef1,
+      ruleFormRef2
     }
   }
 })
@@ -125,7 +182,7 @@ export default defineComponent({
 
   .login-section {
     width: 500px;
-    height: 300px;
+    padding-bottom: 20px;
     background-color: #fff;
     border-radius: 20px;
     margin-top: 10px;

@@ -2,11 +2,9 @@
   <div class="contact-container">
     <div class="remark-section">
       <div class="remark-content">
-        <p class="remark-title">说明</p>
-        <p class="reamrk-desc">1、如果你有好的想法或建议，欢迎添加作者微信。</p>
-        <p class="reamrk-desc">2、如果有好的工作推荐，欢迎添加作者微信。</p>
-        <p class="reamrk-desc">3、如果有不懂的地方或者项目配置，欢迎添加作者微信。</p>
-        <p class="reamrk-desc">4、如果通过该项目学到了新的知识或者对工作有帮助，欢迎打赏作者一杯咖啡。</p>
+        <p class="remark-title">关于作者</p>
+        <p class="reamrk-desc">1、如果你有好的想法或建议、好的工作推荐或者不懂的地方，欢迎添加作者微信。</p>
+        <p class="reamrk-desc">2、如果通过该项目学到了新的知识或者对工作有帮助，欢迎打赏作者一杯咖啡。</p>
       </div>
     </div>
     <div class="qrode-content">

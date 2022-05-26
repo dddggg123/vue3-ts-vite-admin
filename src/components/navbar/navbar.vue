@@ -27,7 +27,7 @@
         <div class="user-section">
           <el-dropdown @command="handleCommand">
             <img class="header-img"
-              src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-a8a6c2a721e25040f94cefb6facb4741_hd.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653315444&t=8053495416847e53c140620a973eabc4"
+              src="../../assets/png/logo.png"
               alt="" />
             <span class="username">{{$t("nickName")}}</span>
             <el-icon>

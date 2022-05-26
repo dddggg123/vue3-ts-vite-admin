@@ -34,7 +34,7 @@
       </el-table-column>
     </el-table>
     <div class="page-row">
-      <el-pagination small background layout="prev, pager, next" :total="15" class="mt-4" />
+      <el-pagination small background layout="prev, pager, next" :total="5" class="mt-4" />
     </div>
   </div>
 </template>
@@ -50,96 +50,6 @@ export default defineComponent({
     }
     const bookList = [
       {
-        img: 'https://img9.doubanio.com/view/subject/s/public/s8865866.jpg',
-        title: '平凡的世界',
-        author: '路遥',
-        publish: '北京十月文艺出版社',
-        pubdate: '2012-3-1',
-        isbn: '9787530212004',
-        price: '79.8元',
-        page: '1251'
-      }, {
-        img: 'https://img2.doubanio.com/view/subject/s/public/s33974633.jpg',
-        title: '活着',
-        author: '余华',
-        publish: '北京十月文艺出版社',
-        pubdate: '2021-7',
-        isbn: '9787530221532',
-        price: '45元',
-        page: '216'
-      }, {
-        img: 'https://img2.doubanio.com/view/subject/s/public/s32266692.jpg',
-        title: '人生海海',
-        author: '麦家',
-        publish: '北京十月文艺出版社',
-        pubdate: '2019-4',
-        isbn: '9787530219218',
-        price: '55元',
-        page: '345'
-      }, {
-        img: 'https://img1.doubanio.com/view/subject/s/public/s34086258.jpg',
-        title: '生死疲劳',
-        author: '莫言',
-        publish: '浙江文艺出版社',
-        pubdate: '2022-1',
-        isbn: '9787533966102',
-        price: '69.9元',
-        page: '584'
-      }, {
-        img: 'https://img9.doubanio.com/view/subject/s/public/s34185404.jpg',
-        title: '金色河流',
-        author: '鲁敏',
-        publish: '译林出版社',
-        pubdate: '2022-3',
-        isbn: '9787544788984',
-        price: '78元',
-        page: '583'
-      }, {
-        img: 'https://img9.doubanio.com/view/subject/s/public/s8865866.jpg',
-        title: '平凡的世界',
-        author: '路遥',
-        publish: '北京十月文艺出版社',
-        pubdate: '2012-3-1',
-        isbn: '9787530212004',
-        price: '79.8元',
-        page: '1251'
-      }, {
-        img: 'https://img2.doubanio.com/view/subject/s/public/s33974633.jpg',
-        title: '活着',
-        author: '余华',
-        publish: '北京十月文艺出版社',
-        pubdate: '2021-7',
-        isbn: '9787530221532',
-        price: '45元',
-        page: '216'
-      }, {
-        img: 'https://img2.doubanio.com/view/subject/s/public/s32266692.jpg',
-        title: '人生海海',
-        author: '麦家',
-        publish: '北京十月文艺出版社',
-        pubdate: '2019-4',
-        isbn: '9787530219218',
-        price: '55元',
-        page: '345'
-      }, {
-        img: 'https://img1.doubanio.com/view/subject/s/public/s34086258.jpg',
-        title: '生死疲劳',
-        author: '莫言',
-        publish: '浙江文艺出版社',
-        pubdate: '2022-1',
-        isbn: '9787533966102',
-        price: '69.9元',
-        page: '584'
-      }, {
-        img: 'https://img9.doubanio.com/view/subject/s/public/s34185404.jpg',
-        title: '金色河流',
-        author: '鲁敏',
-        publish: '译林出版社',
-        pubdate: '2022-3',
-        isbn: '9787544788984',
-        price: '78元',
-        page: '583'
-      }, {
         img: 'https://img9.doubanio.com/view/subject/s/public/s8865866.jpg',
         title: '平凡的世界',
         author: '路遥',
