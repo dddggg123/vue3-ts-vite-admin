@@ -25,10 +25,10 @@
 import { ref, onMounted } from 'vue'
 
 // 生产环境域名地址
-// const iframeSrc = ref('http://www.xkxk.tech/micro/iframe');
+const iframeSrc = 'http://www.xkxk.tech/micro/iframe';
 
 // 本地调试域名地址
-const iframeSrc = 'http://localhost:7000/';
+// const iframeSrc = 'http://localhost:7000/';
 const msg = ref('');
 const iframeApp: any = ref(null);
 const param = ref('');
