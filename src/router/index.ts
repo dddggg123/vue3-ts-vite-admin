@@ -179,14 +179,6 @@ export const DynamicRoutes = [
                     icon: 'tickets'
                 }
             }, {
-                path: 'other',
-                name: 'other',
-                component: () => import('@/pages/other/other.vue'),
-                meta: {
-                    name: '其他模块',
-                    icon: 'link'
-                }
-            }, {
                 path: 'contact',
                 name: 'contact',
                 component: () => import('@/pages/contact/contact.vue'),
