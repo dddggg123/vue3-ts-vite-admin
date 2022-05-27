@@ -5,6 +5,7 @@
         <p class="remark-title">关于作者</p>
         <p class="reamrk-desc">1、如果你有好的想法或建议、好的工作推荐或者不懂的地方，欢迎添加作者微信。</p>
         <p class="reamrk-desc">2、如果通过该项目学到了新的知识或者对工作有帮助，欢迎打赏作者一杯咖啡。</p>
+        <p class="reamrk-desc">3、如果你对于项目构建、部署遇到难题或疑问，可以联系作者免费答疑。</p>
       </div>
     </div>
     <div class="qrode-content">
