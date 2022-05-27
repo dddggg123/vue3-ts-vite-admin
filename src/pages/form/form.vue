@@ -190,8 +190,8 @@ watch(() => form.type,
 .form-container {
   height: 100%;
   padding-left: 5%;
-  margin-top: 5%;
-
+  padding-top: 20px;
+  
   .el-row {
     margin-top: 20px;
 
