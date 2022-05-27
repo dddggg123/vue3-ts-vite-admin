@@ -94,16 +94,16 @@ export default defineComponent({
       }
     }
     const form1 = reactive({
-      account1: '',
-      password1: ''
+      account1: 'user',
+      password1: '12345678'
     })
     const rule1 = reactive({
       account1: [{ validator: accountRule, trigger: 'blur', require: true }],
       password1: [{ validator: passwordRule, trigger: 'blur', require: true }]
     })
     const form2 = reactive({
-      account2: '',
-      password2: ''
+      account2: 'admin',
+      password2: '12345678'
     })
     const rule2 = reactive({
       account2: [{ validator: accountRule, trigger: 'blur', require: true }],
