@@ -34,12 +34,6 @@ router.beforeEach((to: any, from: any, next: any) => {
             next({ ...to, replace: true });
         });
     } else {
-        // 手动修改history的state
-        // if (!history.state.current) {
-        //     Object.assign(history.state, {
-        //         current: from.fullPath
-        //     })
-        // }
         next();
     }
 })
@@ -111,7 +105,7 @@ export const DynamicRoutes = [
                     icon: 'help'
                 }
             }, {
-                path: 'micro',
+                path: 'main/micro',
                 name: 'micro',
                 component: () => import('@/pages/micro/micro.vue'),
                 meta: {

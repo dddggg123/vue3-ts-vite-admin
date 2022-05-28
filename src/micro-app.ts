@@ -2,11 +2,11 @@ const microApps = [
   {
     name: 'micro1',
     entry: import.meta.env.VITE_APP_MICRO_ONE as string,
-    activeRule: '/micro/app-one'
+    activeRule: '/main/micro/app-one'
   }, {
     name: 'micro2',
     entry: import.meta.env.VITE_APP_MICRO_TWO as string,
-    activeRule: '/micro/app-two'
+    activeRule: '/main/micro/app-two'
   }
 ]
 
