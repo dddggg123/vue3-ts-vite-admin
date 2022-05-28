@@ -16,7 +16,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     let state = reactive({
-      sidebarMenu: computed(() => store.getters.GET_MENU)
+      sidebarMenu: computed(() => store.getters.getMenu)
     })
     const router = useRouter();
     onMounted(() => {
