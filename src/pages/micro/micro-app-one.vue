@@ -3,7 +3,7 @@
     <div class="remark-section">
       <div class="remark-content">
         <p class="remark-title">使用说明</p>
-        <p class="reamrk-desc">1、微应用可以单独开发、单独部署、单独运行。<a target="_blank" href="http://www.xkxk.tech/micro/app-two#/">点击体验</a></p>
+        <p class="reamrk-desc">1、微应用可以单独开发、单独部署、单独运行。<a target="_blank" href="http://www.xkxk.tech/micro/app-one#/">子应用1</a><a target="_blank" href="http://www.xkxk.tech/micro/app-two#/">子应用2</a></p>
         <p class="reamrk-desc">2、本项目微前端框架采用的是qiankun。<a target="_blank" href="https://qiankun.umijs.org/zh/guide">相关文档</a></p>
       </div>
     </div>
