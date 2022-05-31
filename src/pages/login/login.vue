@@ -4,13 +4,21 @@
       <p class="title">Vue3-TypeScript-Vite-Admin</p>
     </div>
     <div class="login-section">
-      <el-tabs v-model="currentTab" class="demo-tabs" @tab-click="tabChangeHandler">
+      <el-tabs
+        v-model="currentTab"
+        class="demo-tabs"
+        @tab-click="tabChangeHandler"
+      >
         <el-tab-pane :label="$t('普通账号登录')" name="account">
           <el-form ref="ruleFormRef1" :model="form1" :rules="rule1">
             <div class="account-section">
               <div class="input-section">
                 <el-form-item prop="account1">
-                  <el-input v-model="form1.account1" class="w-50 m-2" :placeholder="$t('请输入普通账号')">
+                  <el-input
+                    v-model="form1.account1"
+                    class="w-50 m-2"
+                    :placeholder="$t('请输入普通账号')"
+                  >
                     <template #prefix>
                       <el-icon>
                         <user />
@@ -19,8 +27,13 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password1">
-                  <el-input type="password" style="margin-top: 20px;" v-model="form1.password1" class="w-50 m-2"
-                    :placeholder="$t('请输入密码')">
+                  <el-input
+                    type="password"
+                    style="margin-top: 20px"
+                    v-model="form1.password1"
+                    class="w-50 m-2"
+                    :placeholder="$t('请输入密码')"
+                  >
                     <template #prefix>
                       <el-icon>
                         <connection />
@@ -29,7 +42,12 @@
                   </el-input>
                 </el-form-item>
               </div>
-              <div @click="loginHandler('user', ruleFormRef1)" class="login-btn">{{ $t('登录') }}</div>
+              <div
+                @click="loginHandler('user', ruleFormRef1)"
+                class="login-btn"
+              >
+                {{ $t("登录") }}
+              </div>
             </div>
           </el-form>
         </el-tab-pane>
@@ -38,7 +56,11 @@
             <div class="account-section">
               <div class="input-section">
                 <el-form-item prop="account2">
-                  <el-input v-model="form2.account2" class="w-50 m-2" :placeholder="$t('请输入管理员账号')">
+                  <el-input
+                    v-model="form2.account2"
+                    class="w-50 m-2"
+                    :placeholder="$t('请输入管理员账号')"
+                  >
                     <template #prefix>
                       <el-icon>
                         <user />
@@ -47,8 +69,13 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password2">
-                  <el-input type="password" style="margin-top: 20px;" v-model="form2.password2" class="w-50 m-2"
-                    :placeholder="$t('请输入密码')">
+                  <el-input
+                    type="password"
+                    style="margin-top: 20px"
+                    v-model="form2.password2"
+                    class="w-50 m-2"
+                    :placeholder="$t('请输入密码')"
+                  >
                     <template #prefix>
                       <el-icon>
                         <connection />
@@ -57,13 +84,18 @@
                   </el-input>
                 </el-form-item>
               </div>
-              <div @click="loginHandler('adminer', ruleFormRef2)" class="login-btn">{{ $t('登录') }}</div>
+              <div
+                @click="loginHandler('adminer', ruleFormRef2)"
+                class="login-btn"
+              >
+                {{ $t("登录") }}
+              </div>
             </div>
           </el-form>
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{ $t('版本号') }}：1.0.22053101</span>
+        <span class="version">{{ $t("版本号") }}：1.0.22053101</span>
       </div>
     </div>
     <div class="record-section">
@@ -73,65 +105,66 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref, reactive } from 'vue';
-import type { TabsPaneContext } from 'element-plus';
-import { useRouter } from 'vue-router';
-import type { FormInstance } from 'element-plus'
+import { defineComponent, ref, Ref, reactive } from "vue";
+import type { TabsPaneContext } from "element-plus";
+import { useRouter } from "vue-router";
+import type { FormInstance } from "element-plus";
 
 export default defineComponent({
   setup() {
-    const ruleFormRef1 = ref<FormInstance>()
-    const ruleFormRef2 = ref<FormInstance>()
+    const ruleFormRef1 = ref<FormInstance>();
+    const ruleFormRef2 = ref<FormInstance>();
     const accountRule = (rule: any, value: any, callback: any) => {
-      if (value === '') {
-        callback(new Error('账号不能为空，可以随意填'))
+      if (value === "") {
+        callback(new Error("账号不能为空，可以随意填"));
       } else {
         callback();
       }
-    }
+    };
     const passwordRule = (rule: any, value: any, callback: any) => {
-      if (value === '') {
-        callback(new Error('密码不能为空，可以随意填'))
+      if (value === "") {
+        callback(new Error("密码不能为空，可以随意填"));
       } else {
         callback();
       }
-    }
+    };
     const form1 = reactive({
-      account1: 'user',
-      password1: '12345678'
-    })
+      account1: "user",
+      password1: "12345678",
+    });
     const rule1 = reactive({
-      account1: [{ validator: accountRule, trigger: 'blur', require: true }],
-      password1: [{ validator: passwordRule, trigger: 'blur', require: true }]
-    })
+      account1: [{ validator: accountRule, trigger: "blur", require: true }],
+      password1: [{ validator: passwordRule, trigger: "blur", require: true }],
+    });
     const form2 = reactive({
-      account2: 'admin',
-      password2: '12345678'
-    })
+      account2: "admin",
+      password2: "12345678",
+    });
     const rule2 = reactive({
-      account2: [{ validator: accountRule, trigger: 'blur', require: true }],
-      password2: [{ validator: passwordRule, trigger: 'blur', require: true }]
-    })
-    
-    const currentTab = ref('account');
+      account2: [{ validator: accountRule, trigger: "blur", require: true }],
+      password2: [{ validator: passwordRule, trigger: "blur", require: true }],
+    });
+
+    const currentTab = ref("account");
     const tabChangeHandler = (tab: TabsPaneContext, event: Event) => {
       console.log(tab, event);
-    }
+    };
     const router = useRouter();
     const loginHandler = (type: string, form: FormInstance | undefined) => {
       if (!form) return;
       form.validate((valid) => {
         if (valid) {
-          window.localStorage.setItem('permission', type);
-          window.localStorage.setItem('token', 'vue3-ts-vite-admin');
+          window.localStorage.setItem("permission", type);
+          window.localStorage.setItem("token", "vue3-ts-vite-admin");
           setTimeout(() => {
-            router.push('/home');
+            router.push("/home");
           }, 500);
-        } else { }
-      })
-    }
-    const account: Ref<String> = ref('');
-    const password: Ref<String> = ref('');
+        } else {
+        }
+      });
+    };
+    const account: Ref<String> = ref("");
+    const password: Ref<String> = ref("");
 
     return {
       currentTab,
@@ -144,10 +177,10 @@ export default defineComponent({
       rule1,
       rule2,
       ruleFormRef1,
-      ruleFormRef2
-    }
-  }
-})
+      ruleFormRef2,
+    };
+  },
+});
 </script>
 
 <style lang="scss">
@@ -157,7 +190,79 @@ export default defineComponent({
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-image: linear-gradient(calc(160deg), rgba(163, 163, 163, 0.09) 0%, rgba(163, 163, 163, 0.09) 33.3%, rgba(100, 100, 100, 0.09) 33.3%, rgba(100, 100, 100, 0.09) 66.6%, rgba(162, 162, 162, 0.09) 66.6%, rgba(162, 162, 162, 0.09) 99%), linear-gradient(calc(366deg), rgba(193, 193, 193, 0.06) 0%, rgba(193, 193, 193, 0.06) 33.3%, rgba(169, 169, 169, 0.06) 33.3%, rgba(169, 169, 169, 0.06) 66.6%, rgba(92, 92, 92, 0.06) 66.6%, rgba(92, 92, 92, 0.06) 99%), linear-gradient(calc(237deg), rgba(45, 45, 45, 0.03) 0%, rgba(45, 45, 45, 0.03) 33.3%, rgba(223, 223, 223, 0.03) 33.3%, rgba(223, 223, 223, 0.03) 66.6%, rgba(173, 173, 173, 0.03) 66.6%, rgba(173, 173, 173, 0.03) 99%), linear-gradient(calc(388deg), rgba(226, 226, 226, 0.06) 0%, rgba(226, 226, 226, 0.06) 33.3%, rgba(81, 81, 81, 0.06) 33.3%, rgba(81, 81, 81, 0.06) 66.6%, rgba(186, 186, 186, 0.06) 66.6%, rgba(186, 186, 186, 0.06) 99%), linear-gradient(calc(193deg), rgba(225, 225, 225, 0.04) 0%, rgba(225, 225, 225, 0.04) 33.3%, rgba(95, 95, 95, 0.04) 33.3%, rgba(95, 95, 95, 0.04) 66.6%, rgba(39, 39, 39, 0.04) 66.6%, rgba(39, 39, 39, 0.04) 99%), linear-gradient(calc(236deg), rgba(184, 184, 184, 0.06) 0%, rgba(184, 184, 184, 0.06) 33.3%, rgba(0, 0, 0, 0.06) 33.3%, rgba(0, 0, 0, 0.06) 66.6%, rgba(140, 140, 140, 0.06) 66.6%, rgba(140, 140, 140, 0.06) 99.9%), linear-gradient(calc(431deg), rgba(40, 40, 40, 0.07) 0%, rgba(40, 40, 40, 0.07) 33.3%, rgba(214, 214, 214, 0.07) 33.3%, rgba(214, 214, 214, 0.07) 66.6%, rgba(190, 190, 190, 0.07) 66.6%, rgba(190, 190, 190, 0.07) 99.9%), linear-gradient(calc(169deg), rgba(230, 230, 230, 0) 0%, rgba(230, 230, 230, 0) 33.3%, rgba(241, 241, 241, 0) 33.3%, rgba(241, 241, 241, 0) 66.6%, rgba(55, 55, 55, 0) 66.6%, rgba(55, 55, 55, 0) 99%), linear-gradient(calc(108deg), rgb(38, 38, 227), rgb(11, 186, 239));
+  background-image: linear-gradient(
+      calc(160deg),
+      rgba(163, 163, 163, 0.09) 0%,
+      rgba(163, 163, 163, 0.09) 33.3%,
+      rgba(100, 100, 100, 0.09) 33.3%,
+      rgba(100, 100, 100, 0.09) 66.6%,
+      rgba(162, 162, 162, 0.09) 66.6%,
+      rgba(162, 162, 162, 0.09) 99%
+    ),
+    linear-gradient(
+      calc(366deg),
+      rgba(193, 193, 193, 0.06) 0%,
+      rgba(193, 193, 193, 0.06) 33.3%,
+      rgba(169, 169, 169, 0.06) 33.3%,
+      rgba(169, 169, 169, 0.06) 66.6%,
+      rgba(92, 92, 92, 0.06) 66.6%,
+      rgba(92, 92, 92, 0.06) 99%
+    ),
+    linear-gradient(
+      calc(237deg),
+      rgba(45, 45, 45, 0.03) 0%,
+      rgba(45, 45, 45, 0.03) 33.3%,
+      rgba(223, 223, 223, 0.03) 33.3%,
+      rgba(223, 223, 223, 0.03) 66.6%,
+      rgba(173, 173, 173, 0.03) 66.6%,
+      rgba(173, 173, 173, 0.03) 99%
+    ),
+    linear-gradient(
+      calc(388deg),
+      rgba(226, 226, 226, 0.06) 0%,
+      rgba(226, 226, 226, 0.06) 33.3%,
+      rgba(81, 81, 81, 0.06) 33.3%,
+      rgba(81, 81, 81, 0.06) 66.6%,
+      rgba(186, 186, 186, 0.06) 66.6%,
+      rgba(186, 186, 186, 0.06) 99%
+    ),
+    linear-gradient(
+      calc(193deg),
+      rgba(225, 225, 225, 0.04) 0%,
+      rgba(225, 225, 225, 0.04) 33.3%,
+      rgba(95, 95, 95, 0.04) 33.3%,
+      rgba(95, 95, 95, 0.04) 66.6%,
+      rgba(39, 39, 39, 0.04) 66.6%,
+      rgba(39, 39, 39, 0.04) 99%
+    ),
+    linear-gradient(
+      calc(236deg),
+      rgba(184, 184, 184, 0.06) 0%,
+      rgba(184, 184, 184, 0.06) 33.3%,
+      rgba(0, 0, 0, 0.06) 33.3%,
+      rgba(0, 0, 0, 0.06) 66.6%,
+      rgba(140, 140, 140, 0.06) 66.6%,
+      rgba(140, 140, 140, 0.06) 99.9%
+    ),
+    linear-gradient(
+      calc(431deg),
+      rgba(40, 40, 40, 0.07) 0%,
+      rgba(40, 40, 40, 0.07) 33.3%,
+      rgba(214, 214, 214, 0.07) 33.3%,
+      rgba(214, 214, 214, 0.07) 66.6%,
+      rgba(190, 190, 190, 0.07) 66.6%,
+      rgba(190, 190, 190, 0.07) 99.9%
+    ),
+    linear-gradient(
+      calc(169deg),
+      rgba(230, 230, 230, 0) 0%,
+      rgba(230, 230, 230, 0) 33.3%,
+      rgba(241, 241, 241, 0) 33.3%,
+      rgba(241, 241, 241, 0) 66.6%,
+      rgba(55, 55, 55, 0) 66.6%,
+      rgba(55, 55, 55, 0) 99%
+    ),
+    linear-gradient(calc(108deg), rgb(38, 38, 227), rgb(11, 186, 239));
 
   .record-section {
     position: absolute;

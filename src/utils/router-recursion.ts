@@ -5,22 +5,22 @@
  * @return {Array} realRoutes 过滤后的路由
  */
 
- export function recursionRouter(userRouter:any[] = [], allRouter:any = []) {
-    // console.log(userRouter,allRouter,1)
-    var realRoutes:any[] = []
-    allRouter.forEach((v:any, i:number) => {
-        userRouter.forEach((item:any, index:number) => {
-            //根据type进行对比
-            if (item.type === v.type) {
-                if (item.children && item.children.length > 0) {
-                    v.children = recursionRouter(item.children, v.children)
-                }
-                realRoutes.push(v)
-            }
-        })
-    })
-    // console.log(realRoutes,2)
-    return realRoutes
+export function recursionRouter(userRouter: any[] = [], allRouter: any = []) {
+  // console.log(userRouter,allRouter,1)
+  const realRoutes: any[] = [];
+  allRouter.forEach((v: any, _i: number) => {
+    userRouter.forEach((item: any, _index: number) => {
+      //根据type进行对比
+      if (item.type === v.type) {
+        if (item.children && item.children.length > 0) {
+          v.children = recursionRouter(item.children, v.children);
+        }
+        realRoutes.push(v);
+      }
+    });
+  });
+  // console.log(realRoutes,2)
+  return realRoutes;
 }
 
 /**
@@ -29,11 +29,11 @@
  *
  * 递归为所有有子路由的路由设置第一个children.path为默认路由
  */
-export function setDefaultRoute(routes:any[]) {
-    routes.forEach((v:any, i:number) => {
-        if (v.children && v.children.length > 0) {
-            v.redirect = { name: v.children[0].name }
-            setDefaultRoute(v.children)
-        }
-    })
+export function setDefaultRoute(routes: any[]) {
+  routes.forEach((v: any, _i: number) => {
+    if (v.children && v.children.length > 0) {
+      v.redirect = { name: v.children[0].name };
+      setDefaultRoute(v.children);
+    }
+  });
 }

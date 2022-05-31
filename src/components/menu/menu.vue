@@ -1,12 +1,25 @@
 <template>
   <div class="menu-container">
-    <el-menu :collapse="state.isSidebarNavCollapse" text-color="#a4a4a4" active-text-color="#fff"
-      background-color="#191a23" :default-active="state.currentMenu" class="theme-bg" id="menu" :unique-opened="true">
+    <el-menu
+      :collapse="state.isSidebarNavCollapse"
+      text-color="#a4a4a4"
+      active-text-color="#fff"
+      background-color="#191a23"
+      :default-active="state.currentMenu"
+      class="theme-bg"
+      id="menu"
+      :unique-opened="true"
+    >
       <template v-for="v in state.menuList" :key="v.name">
         <div v-if="v.children && v.children.length > 0">
           <!-- 外层 -->
-          <el-sub-menu :index="v.name" :key="v.name" class="theme-bg" v-if="!v.meta.hide">
-            <template v-slot:title>
+          <el-sub-menu
+            :index="v.name"
+            :key="v.name"
+            class="theme-bg"
+            v-if="!v.meta.hide"
+          >
+            <template #title>
               <el-icon>
                 <component class="iconfont theme-color" :is="v.meta.icon" />
               </el-icon>
@@ -15,10 +28,18 @@
             </template>
             <el-menu-item-group>
               <!-- <my-menu :menuList="v.children"></my-menu> -->
-              <el-menu-item v-for="item in v.children" :key="item.name" :index="item.name" @click="navigateToRoute(item.name)"
-                class="theme-bg">
+              <el-menu-item
+                v-for="item in v.children"
+                :key="item.name"
+                :index="item.name"
+                @click="navigateToRoute(item.name)"
+                class="theme-bg"
+              >
                 <el-icon>
-                  <component class="iconfont theme-color" :is="item.meta.icon" />
+                  <component
+                    class="iconfont theme-color"
+                    :is="item.meta.icon"
+                  />
                 </el-icon>
                 <span class="theme-color">{{ $t(item.meta.name) }}</span>
               </el-menu-item>
@@ -27,8 +48,13 @@
         </div>
         <div v-else>
           <!-- 内层 -->
-          <el-menu-item v-if="!v.meta.hide" :key="v.name" :index="v.name" @click="navigateToRoute(v.name)"
-            class="theme-bg">
+          <el-menu-item
+            v-if="!v.meta.hide"
+            :key="v.name"
+            :index="v.name"
+            @click="navigateToRoute(v.name)"
+            class="theme-bg"
+          >
             <el-icon>
               <component class="iconfont theme-color" :is="v.meta.icon" />
             </el-icon>
@@ -41,12 +67,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed } from "vue";
+import { defineComponent, reactive, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  name: "my-menu",
+  name: "MyMenu",
   props: {
     menuList: {
       type: Array,
@@ -63,12 +89,14 @@ export default defineComponent({
     };
     let state = reactive({
       menuList: props.menuList,
-      isSidebarNavCollapse: computed(() => store.getters.getIsSidebarNavCollapse),
-      currentMenu: computed(()=>store.getters.getCurrentMenu)
+      isSidebarNavCollapse: computed(
+        () => store.getters.getIsSidebarNavCollapse
+      ),
+      currentMenu: computed(() => store.getters.getCurrentMenu),
     });
     return {
       navigateToRoute,
-      state
+      state,
     };
   },
 });

@@ -5,10 +5,14 @@
         <el-breadcrumb>
           <transition-group name="breadcrumb">
             <!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
-            <el-breadcrumb-item v-for="(route, i) in state.crumbList" :key="route.name" :to="{ name: route.name }"
+            <el-breadcrumb-item
+              v-for="(route, i) in state.crumbList"
+              :key="route.name"
+              :to="{ name: route.name }"
               :class="{
                 'is-last-link': i == state.crumbList.length - 1,
-              }">
+              }"
+            >
               <span>{{ $t(route.meta.name) }}</span>
             </el-breadcrumb-item>
           </transition-group>
@@ -20,22 +24,22 @@
             <el-icon>
               <full-screen color="#1d99e3" />
             </el-icon>
-            <span class="btn-title">{{$t("full")}}</span>
+            <span class="btn-title">{{ $t("full") }}</span>
           </div>
           <div class="line"></div>
         </div>
         <div class="user-section">
           <el-dropdown @command="handleCommand">
-            <img class="header-img"
-              src="../../assets/png/logo.png"
-              alt="" />
-            <span class="username">{{$t("nickName")}}</span>
+            <img class="header-img" src="../../assets/png/logo.png" alt="" />
+            <span class="username">{{ $t("nickName") }}</span>
             <el-icon>
               <arrow-down-bold />
             </el-icon>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="quit">{{$t("signOut")}}</el-dropdown-item>
+                <el-dropdown-item command="quit">{{
+                  $t("signOut")
+                }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -63,18 +67,18 @@ export default defineComponent({
     });
     let fullScreenHandler = () => {
       screenfull.isEnabled && screenfull.toggle();
-    }
-    const handleCommand = (command: string) => {
+    };
+    const handleCommand = () => {
       window.localStorage.clear();
-      store.dispatch('CLEAR_ALL_ROUTES');
+      store.dispatch("CLEAR_ALL_ROUTES");
       setTimeout(() => {
-        router.push('/login');
+        router.push("/login");
       }, 500);
-    }
+    };
     return {
       state,
       handleCommand,
-      fullScreenHandler
+      fullScreenHandler,
     };
   },
 });

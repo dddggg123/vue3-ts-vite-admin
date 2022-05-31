@@ -5,12 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
-const router = useRouter()
-onMounted(() => {
-})
+onMounted(() => {});
 </script>
 
 <style lang="scss">

@@ -3,18 +3,24 @@
     <div class="remark-section">
       <div class="remark-content">
         <p class="remark-title">关于作者</p>
-        <p class="reamrk-desc">1、如果你有好的想法或建议、好的工作推荐或者不懂的地方，欢迎添加作者微信。</p>
-        <p class="reamrk-desc">2、如果通过该项目学到了新的知识或者对工作有帮助，欢迎打赏作者一杯咖啡。</p>
-        <p class="reamrk-desc">3、如果你对于项目构建、部署遇到难题或疑问，可以联系作者免费答疑。</p>
+        <p class="reamrk-desc">
+          1、如果你有好的想法或建议、好的工作推荐或者不懂的地方，欢迎添加作者微信。
+        </p>
+        <p class="reamrk-desc">
+          2、如果通过该项目学到了新的知识或者对工作有帮助，欢迎打赏作者一杯咖啡。
+        </p>
+        <p class="reamrk-desc">
+          3、如果你对于项目构建、部署遇到难题或疑问，可以联系作者免费答疑。
+        </p>
       </div>
     </div>
     <div class="qrode-content">
       <div class="qrcode-section">
-        <img src="@/assets/png/author_wechat.jpg" class="qrcode-img" alt="">
+        <img src="@/assets/png/author_wechat.jpg" class="qrcode-img" alt="" />
         <span class="qrcode-title">微信扫一扫添加好友</span>
       </div>
       <div class="qrcode-section">
-        <img src="@/assets/png/author_admire.jpg" class="qrcode-img" alt="">
+        <img src="@/assets/png/author_admire.jpg" class="qrcode-img" alt="" />
         <span class="qrcode-title">觉得不错赞赏一杯咖啡</span>
       </div>
     </div>
@@ -22,9 +28,7 @@
 </template>
 
 <script lang="ts">
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss">

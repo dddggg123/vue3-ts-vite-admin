@@ -3,16 +3,16 @@
 </template>
 
 <script setup lang="ts">
-import { registerMicroApps, start } from 'qiankun';
-import actions from './actions';
-import apps from './micro-app';
+import { registerMicroApps, start } from "qiankun";
+import actions from "./actions";
+import apps from "./micro-app";
 
 const user = {
-  name: 'wang'
+  name: "wang",
 };
 
-actions.onGlobalStateChange(state => {
-  console.log('main onGlobalStateChange', state);
+actions.onGlobalStateChange((state) => {
+  console.log("main onGlobalStateChange", state);
 });
 
 actions.setGlobalState(user);
@@ -20,10 +20,9 @@ registerMicroApps(apps);
 
 start({
   sandbox: {
-    experimentalStyleIsolation: true
-  }
+    experimentalStyleIsolation: true,
+  },
 });
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
