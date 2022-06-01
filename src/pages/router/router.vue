@@ -12,13 +12,36 @@
         </p>
       </div>
     </div>
+    <div class="btn-section">
+      <el-button type="primary" @click="switchLoginStatusHandler('user')" class="btn">
+        用户登录
+      </el-button>
+      <el-button type="warning" @click="switchLoginStatusHandler('admin')" class="btn">
+        管理员登录
+      </el-button>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-export default defineComponent({});
+const router = useRouter();
+const store = useStore();
+
+const switchLoginStatusHandler = (type: string) => {
+  window.localStorage.clear();
+  store.dispatch("CLEAR_ALL_ROUTES");
+  setTimeout(() => {
+    router.push({
+      name: 'login',
+      params: {
+        type: type
+      }
+    });
+  }, 500);
+}
 </script>
 
 <style lang="scss">
@@ -41,6 +64,21 @@ export default defineComponent({});
       .remark-desc {
         font-size: 22px;
         font-weight: 500;
+      }
+    }
+  }
+
+  .btn-section {
+    margin-top: 20px;
+    padding: 0 5%;
+
+    .btn {
+      font-size: 15px;
+      margin: 0 10px;
+      padding: 10px 20px;
+
+      &:first-child {
+        margin-left: 0;
       }
     }
   }

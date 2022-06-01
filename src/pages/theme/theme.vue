@@ -22,15 +22,15 @@
     </div>
     <p class="theme-title">选择项目主题色</p>
     <div class="color-pick-section">
-      <div
+      <el-button
         v-for="(item, index) in themeArr"
         :key="index"
         :style="{ color: item.color, backgroundColor: item.bgColor }"
         @click="themeItemHandler(index)"
         class="color-item"
       >
-        <span class="color-title">{{ item.title }}</span>
-      </div>
+        {{ item.title }}
+      </el-button>
     </div>
   </div>
 </template>
@@ -116,21 +116,13 @@ export default defineComponent({
     .color-item {
       background-color: blue;
       color: #fff;
-      width: 150px;
-      height: 50px;
-      border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       margin: 0 10px;
       cursor: pointer;
+      padding: 20px 40px;
+      border: none;
 
       &:first-child {
         margin-left: 0px;
-      }
-
-      .color-title {
-        font-size: 18px;
       }
     }
   }
