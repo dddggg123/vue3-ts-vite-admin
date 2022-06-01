@@ -11,6 +11,7 @@
         <p class="reamrk-desc">
           4、vue-i18n官方文档<a
             target="_blank"
+            style="margin-left: 10px;"
             href="https://kazupon.github.io/vue-i18n/zh/started.html#html"
           >https://kazupon.github.io/vue-i18n/zh/started.html#html</a
           >
@@ -20,12 +21,12 @@
     <p class="interntional-title">{{ $t("title") }}</p>
     <p class="interntional-sub-title">{{ $t("welcome") }}</p>
     <div class="btn-section">
-      <button @click="switchLanguageHandler('chinese')" class="btn">
+      <el-button type="primary" @click="switchLanguageHandler('chinese')" class="btn">
         {{ $t("btnZh") }}
-      </button>
-      <button @click="switchLanguageHandler('english')" class="btn">
+      </el-button>
+      <el-button type="warning" @click="switchLanguageHandler('english')" class="btn">
         {{ $t("btnEn") }}
-      </button>
+      </el-button>
     </div>
   </div>
 </template>
@@ -77,7 +78,7 @@ export default defineComponent({
 
     .btn {
       font-size: 15px;
-      margin: 0 20px;
+      margin: 0 10px;
       padding: 10px 20px;
 
       &:first-child {
