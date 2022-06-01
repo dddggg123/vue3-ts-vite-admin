@@ -1,6 +1,6 @@
 const mutations = {
   /* 面包屑导航列表 */
-  setCrumbList(state: any, list: Array<any>) {
+  SET_CRUMB_LIST(state: any, list: Array<any>) {
     state.crumbList = list;
   },
   //左边导航栏列表

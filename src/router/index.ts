@@ -24,18 +24,18 @@ router.beforeEach((to: any, _from: any, next: any) => {
     return next({ path: "/login" });
   }
   //已登录执行逻辑
-  if (window.localStorage.getItem("token") && to.path == "/login")
-    return next({ path: "/" });
+  if (window.localStorage.getItem("token") && to.path == "/login") {
+    return next();
+  }
   //重新加载动态路由
   if (!store.state.permissionList.length && to.path != "/login") {
-    console.log("用户权限:" + window.localStorage.getItem("permission"));
     const routerArr: Array<object> =
       window.localStorage.getItem("permission") == "adminer"
         ? permissionList
         : [];
     // router.removeRoute('router');
     return store.dispatch("FETCH_PERMISSION", routerArr).then(() => {
-      next({ ...to, replace: true });
+      next({ path: "/home" });
     });
   } else {
     next();
@@ -54,7 +54,7 @@ router.afterEach((to: any, _from: any, _next: any) => {
   routerList = routerList.splice(1);
   // let routerList = to.matched;
   //顶部面包屑
-  store.commit("setCrumbList", routerList);
+  store.commit("SET_CRUMB_LIST", routerList);
   //目前左边导航选中的active
   store.commit("SET_CURRENT_MENU", to.name);
 });
