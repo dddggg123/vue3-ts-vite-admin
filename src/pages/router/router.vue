@@ -73,9 +73,13 @@ const switchLoginStatusHandler = (type: string) => {
     padding: 0 5%;
 
     .btn {
-      font-size: 15px;
       margin: 0 10px;
-      padding: 10px 20px;
+      padding: 0;
+      width: 120px;
+      height: 40px;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
 
       &:first-child {
         margin-left: 0;

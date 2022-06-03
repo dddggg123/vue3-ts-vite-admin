@@ -117,9 +117,12 @@ export default defineComponent({
       background-color: blue;
       color: #fff;
       margin: 0 10px;
-      cursor: pointer;
-      padding: 20px 40px;
+      padding: 0;
+      width: 120px;
+      height: 40px;
       border: none;
+      font-size: 16px;
+      border-radius: 10px;
 
       &:first-child {
         margin-left: 0px;
