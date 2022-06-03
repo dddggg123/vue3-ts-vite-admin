@@ -67,7 +67,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{ $t("版本号") }}：1.0.22060301</span>
+        <span class="version">{{ $t("版本号") }}：1.0.22060302</span>
       </div>
     </div>
     <div class="record-section">
@@ -77,13 +77,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref, reactive, onMounted } from "vue";
+import { defineComponent, ref, Ref, reactive, onMounted, provide } from "vue";
 import type { TabsPaneContext } from "element-plus";
 import { useRouter, useRoute } from "vue-router";
 import type { FormInstance } from "element-plus";
+import emitter from "@/utils/bus"
 
 export default defineComponent({
   setup() {
+
     const ruleFormRef1 = ref<FormInstance>();
     const ruleFormRef2 = ref<FormInstance>();
     const accountRule = (rule: any, value: any, callback: any) => {
@@ -119,8 +121,8 @@ export default defineComponent({
 
     const currentTab: Ref<string> = ref("user");
     const tabChangeHandler = (tab: TabsPaneContext, event: Event) => {
-      console.log(tab, event);
     };
+
     const router = useRouter();
     const route = useRoute();
 
@@ -131,12 +133,14 @@ export default defineComponent({
           window.localStorage.setItem("permission", type);
           window.localStorage.setItem("token", "vue3-ts-vite-admin");
           setTimeout(() => {
+            emitter.emit("loginStatus", "ok");
             router.push("/home");
           }, 500);
         } else {
         }
       });
     };
+
     const account: Ref<String> = ref("");
     const password: Ref<String> = ref("");
 

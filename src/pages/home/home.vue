@@ -14,49 +14,20 @@
           4、本项目的服务端采用Windows Server 2012、宝塔面板结合Nginx。
         </p>
         <p class="reamrk-desc">
-          5、本项目的在线预览地址：<a
-            target="_blank"
-            href="https://www.xkxk.tech"
-          >https://www.xkxk.tech</a
-          >
+          5、本项目的在线预览地址：<a target="_blank" href="https://www.xkxk.tech">https://www.xkxk.tech</a>
         </p>
         <p class="reamrk-desc">
-          6、本项目Gitee下载地址：<a
-            target="_blank"
-            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin"
-          >主应用</a
-          >、<a
-            target="_blank"
-            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-micro1"
-          >微前端应用1</a
-          >、<a
-            target="_blank"
-            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-micro2"
-          >微前端应用2</a
-          >、<a
-            target="_blank"
-            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-iframe"
-          >iframe项目</a
-          >
+          6、本项目Gitee下载地址：<a target="_blank"
+            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin">主应用</a>、<a target="_blank"
+            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-micro1">微前端应用1</a>、<a target="_blank"
+            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-micro2">微前端应用2</a>、<a target="_blank"
+            href="https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin-iframe">iframe项目</a>
         </p>
         <p class="reamrk-desc">
-          7、本项目Github下载地址：<a
-            target="_blank"
-            href="https://github.com/dddggg123/vue3-ts-vite-admin"
-          >主应用</a
-          >、<a
-            target="_blank"
-            href="https://github.com/dddggg123/vue3-ts-vite-admin-micro1"
-          >微前端应用1</a
-          >、<a
-            target="_blank"
-            href="https://github.com/dddggg123/vue3-ts-vite-admin-micro2"
-          >微前端应用2</a
-          >、<a
-            target="_blank"
-            href="https://github.com/dddggg123/vue3-ts-vite-admin-iframe"
-          >iframe项目</a
-          >
+          7、本项目Github下载地址：<a target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin">主应用</a>、<a
+            target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin-micro1">微前端应用1</a>、<a target="_blank"
+            href="https://github.com/dddggg123/vue3-ts-vite-admin-micro2">微前端应用2</a>、<a target="_blank"
+            href="https://github.com/dddggg123/vue3-ts-vite-admin-iframe">iframe项目</a>
         </p>
         <p class="reamrk-desc">
           8、如果你觉得本项目不错或者对自己工作有帮助，欢迎点个star！
@@ -67,16 +38,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
-import {ElMessage} from "element-plus";
+import { defineComponent, onMounted, onBeforeMount } from "vue";
+import { ElMessage } from "element-plus";
+import emitter from "@/utils/bus"
 
 export default defineComponent({
   setup() {
     onMounted(() => {
-      ElMessage({
-        message: '登录成功',
-        type: 'success'
+      emitter.on("loginStatus", (res: any) => {
+        if (res === "ok") {
+          ElMessage({
+            message: '登录成功',
+            type: 'success'
+          });
+        }
       })
+    });
+    onBeforeMount(() => {
+      emitter.off("loginStatus");
     });
   }
 });
