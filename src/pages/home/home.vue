@@ -67,25 +67,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted } from "vue";
+import {ElMessage} from "element-plus";
+
 export default defineComponent({
   setup() {
-    let count = ref(0);
-
-    const addCount = () => {
-      setInterval(() => {
-        count.value += 1;
-      }, 1000);
-    };
-
     onMounted(() => {
-      addCount();
+      ElMessage({
+        message: '登录成功',
+        type: 'success'
+      })
     });
-
-    return {
-      count,
-    };
-  },
+  }
 });
 </script>
 
