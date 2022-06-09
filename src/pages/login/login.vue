@@ -19,7 +19,8 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password1">
-                  <el-input type="password" style="margin-top: 20px" v-model="form1.password1" class="w-50 m-2"
+                  <el-input
+                    type="password" style="margin-top: 20px" v-model="form1.password1" class="w-50 m-2"
                     :placeholder="$t('请输入密码')">
                     <template #prefix>
                       <el-icon>
@@ -49,7 +50,8 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password2">
-                  <el-input type="password" style="margin-top: 20px" v-model="form2.password2" class="w-50 m-2"
+                  <el-input
+                    type="password" style="margin-top: 20px" v-model="form2.password2" class="w-50 m-2"
                     :placeholder="$t('请输入密码')">
                     <template #prefix>
                       <el-icon>
@@ -67,7 +69,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{ $t("版本号") }}：1.0.22060302</span>
+        <span class="version">{{ $t("版本号") }}：1.0.22060901</span>
       </div>
     </div>
     <div class="record-section">
@@ -77,7 +79,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref, reactive, onMounted, provide } from "vue";
+import { defineComponent, ref, Ref, reactive, onMounted } from "vue";
 import type { TabsPaneContext } from "element-plus";
 import { useRouter, useRoute } from "vue-router";
 import type { FormInstance } from "element-plus";
@@ -120,7 +122,7 @@ export default defineComponent({
     });
 
     const currentTab: Ref<string> = ref("user");
-    const tabChangeHandler = (tab: TabsPaneContext, event: Event) => {
+    const tabChangeHandler = (_tab: TabsPaneContext, _event: Event) => {
     };
 
     const router = useRouter();
@@ -141,8 +143,8 @@ export default defineComponent({
       });
     };
 
-    const account: Ref<String> = ref("");
-    const password: Ref<String> = ref("");
+    const account = ref("");
+    const password = ref("");
 
     onMounted(() => {
       let type = route.params.type as any;

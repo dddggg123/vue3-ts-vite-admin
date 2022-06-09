@@ -11,13 +11,12 @@
       :unique-opened="true"
     >
       <template v-for="v in state.menuList" :key="v.name">
-        <div v-if="v.children && v.children.length > 0">
+        <div v-if="v.children && v.children.length > 0 && !v.meta.subHide">
           <!-- 外层 -->
           <el-sub-menu
             :index="v.name"
             :key="v.name"
             class="theme-bg"
-            v-if="!v.meta.hide"
           >
             <template #title>
               <el-icon>

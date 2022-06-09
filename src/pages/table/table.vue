@@ -49,11 +49,11 @@
       <el-table-column prop="page" label="页数" width="120" />
       <el-table-column fixed="right" label="操作">
         <template #default>
+          <el-button text size="small" @click="bookBtnHandler('detail')"
+          >详情</el-button
+          >
           <el-button text size="small" @click="bookBtnHandler('modify')"
           >编辑</el-button
-          >
-          <el-button text size="small" @click="bookBtnHandler('copy')"
-          >复制</el-button
           >
         </template>
       </el-table-column>
@@ -73,11 +73,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { exportExcel } from "../../utils/export";
+// import {useRouter} from "vue-router"
 
 export default defineComponent({
   setup() {
-    const bookBtnHandler = (type: String) => {
-      console.log("事件类型:" + type);
+    // const router = useRouter();
+    const bookBtnHandler = (_type: String) => {
+      // switch (type) {
+      //   case 'detail':
+      //     router.push('/book');
+      //     break;
+      //   case 'modify':
+      //     break;
+      // }
     };
     const bookList = [
       {

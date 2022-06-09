@@ -38,25 +38,36 @@ router.beforeEach((to: any, _from: any, next: any) => {
       next({ path: "/home" });
     });
   } else {
+    console.log('我执行了，跳转路径:' + to.path);
     next();
   }
 });
 
-router.afterEach((to: any, _from: any, _next: any) => {
+router.afterEach((to: any, from: any, _next: any) => {
   try {
     //设置标题
     if (to.meta.name) {
       document.title = to.meta.name;
     }
-  } catch (err) {}
+  } catch (err) { }
   const arr = to.matched;
   let routerList = [...arr];
+  // console.log(from);
+  // console.log(to);
   routerList = routerList.splice(1);
-  // let routerList = to.matched;
-  //顶部面包屑
-  store.commit("SET_CRUMB_LIST", routerList);
-  //目前左边导航选中的active
-  store.commit("SET_CURRENT_MENU", to.name);
+  if (to.meta.hide) {
+    routerList.unshift(from);
+    //顶部面包屑
+    store.commit("SET_CRUMB_LIST", routerList);
+    //目前左边导航选中的active
+    // store.commit("SET_CURRENT_MENU", to.name);
+  } else {
+    //顶部面包屑
+    store.commit("SET_CRUMB_LIST", routerList);
+    //目前左边导航选中的active
+    store.commit("SET_CURRENT_MENU", to.name);
+  }
+
 });
 
 export const DynamicRoutes = [
@@ -93,7 +104,8 @@ export const DynamicRoutes = [
         meta: {
           name: "表格管理",
           icon: "tickets",
-        },
+          subHide: true
+        }
       },
       {
         path: "router",
@@ -196,6 +208,16 @@ export const DynamicRoutes = [
           icon: "phone",
         },
       },
+      {
+        path: "book",
+        name: "book",
+        component: () => import("@/pages/book/book-detail.vue"),
+        meta: {
+          name: "图书详情",
+          icon: "TopLeft",
+          hide: true
+        }
+      }
     ],
   },
 ];

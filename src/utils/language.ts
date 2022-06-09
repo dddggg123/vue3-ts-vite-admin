@@ -32,6 +32,7 @@ const language = {
     登录: "登录",
     子应用1: "子应用1",
     子应用2: "子应用2",
+    图书详情: "图书详情",
   },
   "en-US": {
     nickName: "adminer",
@@ -66,6 +67,7 @@ const language = {
     登录: "Login in",
     子应用1: "SubApp One",
     子应用2: "SubApp Two",
+    图书详情: "Book Detail",
   },
 };
 export default language;
