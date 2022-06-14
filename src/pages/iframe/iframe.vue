@@ -15,25 +15,12 @@
       </div>
     </div>
     <div class="iframe-content">
-      <iframe
-        id="iframeApp"
-        ref="iframeApp"
-        class="iframe-section"
-        :src="iframeSrc"
-        frameborder="0"
-      ></iframe>
+      <iframe id="iframeApp" ref="iframeApp" class="iframe-section" :src="iframeSrc" frameborder="0"></iframe>
       <div class="btn-section">
         <p>这里是父应用</p>
         <p>iframe传递的信息:{{ param }}</p>
-        <el-input
-          width="150px;"
-          v-model="msg"
-          class="w-50 m-2"
-          placeholder="输入传递信息"
-        />
-        <el-button type="primary" @click="postMsgHandler" class="post-btn"
-        >向iframe传值</el-button
-        >
+        <el-input width="150px;" v-model="msg" class="w-50 m-2" placeholder="输入传递信息" />
+        <el-button type="primary" @click="postMsgHandler" class="post-btn">向iframe传值</el-button>
       </div>
     </div>
   </div>
@@ -52,64 +39,64 @@ const iframeApp: any = ref(null);
 const param = ref("");
 
 const postMsgHandler = () => {
-  // 本地调试
-  // iframeApp.value.contentWindow.postMessage(msg.value, '*');
-  // 生产环境
-  iframeApp.value.contentWindow.postMessage(msg.value, iframeSrc);
+    // 本地调试
+    // iframeApp.value.contentWindow.postMessage(msg.value, '*');
+    // 生产环境
+    iframeApp.value.contentWindow.postMessage(msg.value, iframeSrc);
 };
 onMounted(() => {
-  window.addEventListener("message", (event) => {
-    param.value = "";
-    param.value = event.data;
-  });
+    window.addEventListener("message", (event) => {
+        param.value = "";
+        param.value = event.data;
+    });
 });
 </script>
 
 <style lang="scss">
 .iframe-container {
-  height: 100%;
+    height: 100%;
 
-  .remark-section {
-    margin-top: 20px;
-    padding: 0 5%;
-
-    .remark-content {
-      text-align: left;
-
-      .remark-title {
-        font-size: 25px;
-        font-weight: 600;
-      }
-
-      .remark-desc {
-        font-size: 22px;
-        font-weight: 500;
-      }
-    }
-  }
-
-  .iframe-content {
-    display: flex;
-    padding-left: 5%;
-
-    .iframe-section {
-      width: 400px;
-      height: 300px;
-      margin-top: 50px;
-      background-color: #f4f4f4;
-    }
-
-    .btn-section {
-      width: 400px;
-      height: 300px;
-      margin-top: 50px;
-      margin-left: 20px;
-      background-color: #f4f4f4;
-
-      .post-btn {
+    .remark-section {
         margin-top: 20px;
-      }
+        padding: 0 5%;
+
+        .remark-content {
+            text-align: left;
+
+            .remark-title {
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+            .remark-desc {
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
     }
-  }
+
+    .iframe-content {
+        display: flex;
+        padding-left: 5%;
+
+        .iframe-section {
+            width: 400px;
+            height: 300px;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .btn-section {
+            width: 400px;
+            height: 300px;
+            margin-top: 50px;
+            margin-left: 20px;
+            background-color: #f4f4f4;
+
+            .post-btn {
+                margin-top: 20px;
+            }
+        }
+    }
 }
 </style>

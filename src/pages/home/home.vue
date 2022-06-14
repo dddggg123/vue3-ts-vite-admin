@@ -30,10 +30,8 @@
         <p class="reamrk-desc">
           7、本项目Github下载地址：<a target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin">主应用</a>、<a
             target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin-micro1">微前端应用1</a>、<a
-            target="_blank"
-            href="https://github.com/dddggg123/vue3-ts-vite-admin-micro2">微前端应用2</a>、<a
-              target="_blank"
-              href="https://github.com/dddggg123/vue3-ts-vite-admin-iframe">iframe项目</a>
+            target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin-micro2">微前端应用2</a>、<a
+            target="_blank" href="https://github.com/dddggg123/vue3-ts-vite-admin-iframe">iframe项目</a>
         </p>
         <p class="reamrk-desc">
           8、如果你觉得本项目不错或者对自己工作有帮助，欢迎点个star！
@@ -49,45 +47,45 @@ import { ElMessage } from "element-plus";
 import emitter from "@/utils/bus"
 
 export default defineComponent({
-  setup() {
-    onMounted(() => {
-      emitter.on("loginStatus", (res: any) => {
-        if (res === "ok") {
-          ElMessage({
-            message: '登录成功',
-            type: 'success'
-          });
-        }
-      })
-    });
-    onBeforeMount(() => {
-      emitter.off("loginStatus");
-    });
-  }
+    setup() {
+        onMounted(() => {
+            emitter.on("loginStatus", (res: any) => {
+                if (res === "ok") {
+                    ElMessage({
+                        message: '登录成功',
+                        type: 'success'
+                    });
+                }
+            })
+        });
+        onBeforeMount(() => {
+            emitter.off("loginStatus");
+        });
+    }
 });
 </script>
 
 <style lang="scss">
 .home-container {
-  width: 100%;
+    width: 100%;
 
-  .remark-section {
-    margin-top: 20px;
-    padding: 0 5%;
+    .remark-section {
+        margin-top: 20px;
+        padding: 0 5%;
 
-    .remark-content {
-      text-align: left;
+        .remark-content {
+            text-align: left;
 
-      .remark-title {
-        font-size: 25px;
-        font-weight: 600;
-      }
+            .remark-title {
+                font-size: 25px;
+                font-weight: 600;
+            }
 
-      .remark-desc {
-        font-size: 22px;
-        font-weight: 500;
-      }
+            .remark-desc {
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
     }
-  }
 }
 </style>

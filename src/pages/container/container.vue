@@ -12,26 +12,26 @@ import Navbar from "@/components/navbar/navbar.vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  components: {
-    MyMenu,
-    Navbar,
-  },
-  setup() {
-    const store = useStore();
-    let state = reactive({
-      sidebarMenu: computed(() => store.getters.getMenu),
-    });
-    onMounted(() => {
-    });
-    return {
-      state,
-    };
-  },
+    components: {
+        MyMenu,
+        Navbar,
+    },
+    setup() {
+        const store = useStore();
+        let state = reactive({
+            sidebarMenu: computed(() => store.getters.getMenu),
+        });
+        onMounted(() => {
+        });
+        return {
+            state,
+        };
+    },
 });
 </script>
 
 <style lang="scss">
 .app-container {
-  height: 100%;
+    height: 100%;
 }
 </style>

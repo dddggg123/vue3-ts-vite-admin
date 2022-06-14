@@ -1,23 +1,27 @@
 <template>
-    <div class="editor-container">
-        <div class="remark-section">
-            <div class="remark-content">
-                <p class="remark-title">使用说明</p>
-                <p class="reamrk-desc">
-                    1、推荐一个好用的国产富文本编辑器 wangEditor
-                </p>
-                <p class="reamrk-desc">
-                    2、更多参数配置和功能请参考<a style="margin-left: 5px;" target="_blank" href="https://www.wangeditor.com/">相关文档</a>
-                </p>
-            </div>
-        </div>
-        <div class="edtior-content">
-            <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig"
-                :mode="mode" />
-            <Editor style="height: 500px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig"
-                :mode="mode" @onCreated="handleCreated" />
-        </div>
+  <div class="editor-container">
+    <div class="remark-section">
+      <div class="remark-content">
+        <p class="remark-title">使用说明</p>
+        <p class="reamrk-desc">
+          1、推荐一个好用的国产富文本编辑器 wangEditor
+        </p>
+        <p class="reamrk-desc">
+          2、更多参数配置和功能请参考<a
+            style="margin-left: 5px;" target="_blank"
+            href="https://www.wangeditor.com/">相关文档</a>
+        </p>
+      </div>
     </div>
+    <div class="edtior-content">
+      <Toolbar
+        style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig"
+        :mode="mode" />
+      <Editor
+        style="height: 500px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig"
+        :mode="mode" @on-created="handleCreated" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

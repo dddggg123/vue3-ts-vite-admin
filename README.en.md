@@ -1,36 +1,40 @@
-# vue3+ts+vite+admin
+# Vue3 TypeScript Vite Admin
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+### 项目介绍
 
-#### Software Architecture
-Software architecture description
+1. 本项目用来实践和学习Vue3、Vite、qiankun等技术栈。
+2. 帮助你快速搭建后台管理系统、免费且开源。
+3. 本项目可拆分为1个主应用项目、2个微前端应用、1个iframe应用。
+4. 项目结构简单便于二次开发和初学者学习。
 
-#### Installation
+### 项目预览
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 在线预览地址1：https://www.xkxk.tech
+- 在线预览地址2：https://xkxk.tech
 
-#### Instructions
+### 相关技术栈
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- Vue3、TypeScript、Vite、qiankun
+- 国际化、动态路由、富文本编辑器等
 
-#### Contribution
+### 使用说明
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+- npm install
+- npm run dev
+
+### 联系作者
+
+使用中遇到不懂的问题或者有更好的建议欢迎添加作者微信
+
+![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300)
+
+### 写在最后
+
+如果你觉得本项目不错或者对自己工作有帮助，欢迎点个star或者打赏作者一杯咖啡！
+
+![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300)
 
 
-#### Gitee Feature
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+

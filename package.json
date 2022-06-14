@@ -22,8 +22,8 @@
     "screenfull": "^5.1.0",
     "vue": "^3.2.25",
     "vue-i18n": "^9.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0",
+    "vue-router": "^4.0.16",
+    "vuex": "^4.0.2",
     "xlsx": "^0.17.0"
   },
   "devDependencies": {
