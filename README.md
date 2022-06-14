@@ -12,6 +12,11 @@
 - 在线预览地址1：https://www.xkxk.tech
 - 在线预览地址2：https://xkxk.tech
 
+### 源码下载
+
+- gitee下载地址：[项目链接](https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin)
+- github下载地址：[项目链接](https://github.com/dddggg123/vue3-ts-vite-admin)
+
 ### 相关技术栈
 
 - Vue3、TypeScript、Vite、qiankun
@@ -24,15 +29,16 @@
 
 ### 联系作者
 
-使用中遇到不懂的问题或者有更好的建议欢迎添加作者微信
+- 使用中遇到不懂的问题或者有更好的建议欢迎添加作者微信
+- 想要加入技术群学习前端开发也可以联系作者
 
-![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300)
+  ![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300)
 
 ### 写在最后
 
-如果你觉得本项目不错或者对自己工作有帮助，欢迎点个star或者打赏作者一杯咖啡！
+- 如果你觉得本项目不错或者对自己工作有帮助，欢迎点个star或者打赏作者一杯咖啡！
 
-![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300)
+   ![作者](https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300)
 
 
 
