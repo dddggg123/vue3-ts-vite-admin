@@ -10,7 +10,11 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input class="text-input" v-model="form.name" placeholder="请输入优惠券名称" />
+            <el-input
+              class="text-input"
+              v-model="form.name"
+              placeholder="请输入优惠券名称"
+            />
             <span class="desc">优惠券名称不能超过10个字</span>
           </div>
         </el-col>
@@ -24,7 +28,12 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input-number v-model="form.num" :min="1" :max="999" @change="numChangeHandler" />
+            <el-input-number
+              v-model="form.num"
+              :min="1"
+              :max="999"
+              @change="numChangeHandler"
+            />
             <span class="desc">优惠券数量不能超过999</span>
           </div>
         </el-col>
@@ -38,7 +47,12 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input-number v-model="form.limit" :min="1" :max="999" @change="limitChangeHandler" />
+            <el-input-number
+              v-model="form.limit"
+              :min="1"
+              :max="999"
+              @change="limitChangeHandler"
+            />
             <span class="desc">每人限领数量不能超过优惠券数量</span>
           </div>
         </el-col>
@@ -68,7 +82,11 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input class="text-input" v-model="form.name" placeholder="请输入折扣" />
+            <el-input
+              class="text-input"
+              v-model="form.name"
+              placeholder="请输入折扣"
+            />
             <span class="desc">优惠券折扣为0.1-9.9之间</span>
           </div>
         </el-col>
@@ -82,7 +100,11 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input class="text-input" v-model="form.name" placeholder="请输入减免金额" />
+            <el-input
+              class="text-input"
+              v-model="form.name"
+              placeholder="请输入减免金额"
+            />
             <span class="desc">减免金额不能超过原价</span>
           </div>
         </el-col>
@@ -97,8 +119,12 @@
         <el-col :span="10">
           <div class="content-section">
             <el-date-picker
-              v-model="form.duration" type="datetimerange" range-separator="至"
-              start-placeholder="开始日期时间" end-placeholder="截止日期时间" />
+              v-model="form.duration"
+              type="datetimerange"
+              range-separator="至"
+              start-placeholder="开始日期时间"
+              end-placeholder="截止日期时间"
+            />
           </div>
         </el-col>
       </el-row>
@@ -111,7 +137,12 @@
         </el-col>
         <el-col :span="10">
           <div class="content-section">
-            <el-input type="textarea" class="text-input" v-model="form.remark" placeholder="请输入优惠券说明" />
+            <el-input
+              type="textarea"
+              class="text-input"
+              v-model="form.remark"
+              placeholder="请输入优惠券说明"
+            />
             <span class="desc">优惠券说明不能超过100个字</span>
           </div>
         </el-col>
@@ -127,12 +158,22 @@
           <div class="content-section">
             <div class="checkbox-section">
               <el-checkbox
-                v-model="checkAll" :indeterminate="isIndeterminate"
-                @change="productAllSelectChangeHandler">
+                v-model="checkAll"
+                :indeterminate="isIndeterminate"
+                @change="productAllSelectChangeHandler"
+              >
                 全选
               </el-checkbox>
-              <el-checkbox-group v-model="form.checkedProducts" @change="productSelectChangeHandler">
-                <el-checkbox v-for="product in productList" :key="product" :label="product" product>
+              <el-checkbox-group
+                v-model="form.checkedProducts"
+                @change="productSelectChangeHandler"
+              >
+                <el-checkbox
+                  v-for="product in productList"
+                  :key="product"
+                  :label="product"
+                  product
+                >
                 </el-checkbox>
               </el-checkbox-group>
             </div>
@@ -151,108 +192,108 @@
 import { reactive, ref, watch } from "vue";
 
 const form = reactive({
-    name: "",
-    num: 1,
-    limit: 1,
-    type: "discount",
-    duration: [],
-    remark: "",
-    checkedProducts: ["Vivo", "ThinkPad"],
+  name: "",
+  num: 1,
+  limit: 1,
+  type: "discount",
+  duration: [],
+  remark: "",
+  checkedProducts: ["Vivo", "ThinkPad"],
 });
 
 const checkAll = ref(false);
 const isIndeterminate = ref(true);
 const productList = [
-    "华为Mate50 pro",
-    "苹果13",
-    "Mac pro",
-    "Vivo",
-    "OPPO",
-    "ThinkPad",
-    "Mini",
-    "Haval",
+  "华为Mate50 pro",
+  "苹果13",
+  "Mac pro",
+  "Vivo",
+  "OPPO",
+  "ThinkPad",
+  "Mini",
+  "Haval",
 ];
 
 const productAllSelectChangeHandler = (val: boolean) => {
-    form.checkedProducts = val ? productList : [];
-    isIndeterminate.value = false;
+  form.checkedProducts = val ? productList : [];
+  isIndeterminate.value = false;
 };
 const productSelectChangeHandler = (value: string[]) => {
-    const checkedCount = value.length;
-    checkAll.value = checkedCount === productList.length;
-    isIndeterminate.value = checkedCount > 0 && checkedCount < productList.length;
+  const checkedCount = value.length;
+  checkAll.value = checkedCount === productList.length;
+  isIndeterminate.value = checkedCount > 0 && checkedCount < productList.length;
 };
 const currentType = ref("discount");
 
-const numChangeHandler = () => { };
+const numChangeHandler = () => {};
 
-const limitChangeHandler = () => { };
+const limitChangeHandler = () => {};
 
 watch(
-    () => form.type,
-    (newvalue) => {
-        console.log(newvalue);
-        currentType.value = newvalue;
-    },
-    {
-        deep: true,
-    }
+  () => form.type,
+  (newvalue) => {
+    console.log(newvalue);
+    currentType.value = newvalue;
+  },
+  {
+    deep: true,
+  }
 );
 </script>
 
 <style lang="scss">
 .form-container {
-    height: 100%;
-    padding-left: 5%;
+  height: 100%;
+  padding-left: 5%;
 
-    .form-content {
-        margin-top: 20px;
+  .form-content {
+    margin-top: 20px;
 
-        .el-row {
-            margin-top: 20px;
+    .el-row {
+      margin-top: 20px;
 
-            &:first-child {
-                margin-top: 0;
-            }
-        }
-
-        .title-section {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100%;
-            line-height: 100%;
-
-            .require {
-                color: red;
-                margin-right: 5px;
-            }
-
-            .title {
-                font-size: 15px;
-                font-weight: 550;
-            }
-        }
-
-        .content-section {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            .text-input {
-                width: 250px;
-            }
-
-            .desc {
-                font-size: 13px;
-                color: gray;
-                margin-left: 10px;
-            }
-        }
-
-        .btn-section {
-            margin-top: 40px;
-        }
+      &:first-child {
+        margin-top: 0;
+      }
     }
+
+    .title-section {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+      line-height: 100%;
+
+      .require {
+        color: red;
+        margin-right: 5px;
+      }
+
+      .title {
+        font-size: 15px;
+        font-weight: 550;
+      }
+    }
+
+    .content-section {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .text-input {
+        width: 250px;
+      }
+
+      .desc {
+        font-size: 13px;
+        color: gray;
+        margin-left: 10px;
+      }
+    }
+
+    .btn-section {
+      margin-top: 40px;
+    }
+  }
 }
 </style>

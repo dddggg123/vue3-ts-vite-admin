@@ -16,11 +16,11 @@
     </div>
     <div class="qrode-content">
       <div class="qrcode-section">
-        <img src="@/assets/png/author_wechat.jpg" class="qrcode-img" alt="" />
+        <img src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300" class="qrcode-img" alt="" />
         <span class="qrcode-title">微信扫一扫添加好友</span>
       </div>
       <div class="qrcode-section">
-        <img src="@/assets/png/author_admire.jpg" class="qrcode-img" alt="" />
+        <img src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300" class="qrcode-img" alt="" />
         <span class="qrcode-title">觉得不错赞赏一杯咖啡</span>
       </div>
     </div>

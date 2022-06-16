@@ -13,10 +13,18 @@
       </div>
     </div>
     <div class="btn-section">
-      <el-button type="primary" @click="switchLoginStatusHandler('user')" class="btn">
+      <el-button
+        type="primary"
+        @click="switchLoginStatusHandler('user')"
+        class="btn"
+      >
         用户登录
       </el-button>
-      <el-button type="warning" @click="switchLoginStatusHandler('admin')" class="btn">
+      <el-button
+        type="warning"
+        @click="switchLoginStatusHandler('admin')"
+        class="btn"
+      >
         管理员登录
       </el-button>
     </div>
@@ -31,60 +39,60 @@ const router = useRouter();
 const store = useStore();
 
 const switchLoginStatusHandler = (type: string) => {
-    window.localStorage.clear();
-    store.dispatch("CLEAR_ALL_ROUTES");
-    setTimeout(() => {
-        router.push({
-            name: 'login',
-            params: {
-                type: type
-            }
-        });
-    }, 500);
-}
+  window.localStorage.clear();
+  store.dispatch("CLEAR_ALL_ROUTES");
+  setTimeout(() => {
+    router.push({
+      name: "login",
+      params: {
+        type: type,
+      },
+    });
+  }, 500);
+};
 </script>
 
 <style lang="scss">
 .router-container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    .remark-section {
-        margin-top: 20px;
-        padding: 0 5%;
+  .remark-section {
+    margin-top: 20px;
+    padding: 0 5%;
 
-        .remark-content {
-            text-align: left;
+    .remark-content {
+      text-align: left;
 
-            .remark-title {
-                font-size: 25px;
-                font-weight: 600;
-            }
+      .remark-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
 
-            .remark-desc {
-                font-size: 22px;
-                font-weight: 500;
-            }
-        }
+      .remark-desc {
+        font-size: 22px;
+        font-weight: 500;
+      }
     }
+  }
 
-    .btn-section {
-        margin-top: 20px;
-        padding: 0 5%;
+  .btn-section {
+    margin-top: 20px;
+    padding: 0 5%;
 
-        .btn {
-            margin: 0 10px;
-            padding: 0;
-            width: 120px;
-            height: 40px;
-            border: none;
-            font-size: 16px;
-            border-radius: 10px;
+    .btn {
+      margin: 0 10px;
+      padding: 0;
+      width: 120px;
+      height: 40px;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
 
-            &:first-child {
-                margin-left: 0;
-            }
-        }
+      &:first-child {
+        margin-left: 0;
+      }
     }
+  }
 }
 </style>

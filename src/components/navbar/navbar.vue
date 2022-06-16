@@ -18,11 +18,11 @@
       <div class="tool-section">
         <div class="btn-section">
           <div @click="btnHandler('gitee')" class="btn">
-            <img class="icon" src="../../assets/png/gitee_icon.png" alt="">
+            <img class="icon" src="../../assets/png/gitee_icon.png" alt="" />
             <span class="btn-title">gitee</span>
           </div>
           <div @click="btnHandler('github')" class="btn">
-            <img class="icon" src="../../assets/png/github_icon.png" alt="">
+            <img class="icon" src="../../assets/png/github_icon.png" alt="" />
             <span class="btn-title">github</span>
           </div>
           <div @click="btnHandler('full')" class="btn">
@@ -75,13 +75,19 @@ export default defineComponent({
         const btnHandler = (type: string) => {
             switch (type) {
                 case "full":
-                     screenfull.isEnabled && screenfull.toggle();
+                    screenfull.isEnabled && screenfull.toggle();
                     break;
                 case "gitee":
-                    window.open('https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin', "_blank");
+                    window.open(
+                        "https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin",
+                        "_blank"
+                    );
                     break;
                 case "github":
-                    window.open('https://github.com/dddggg123/vue3-ts-vite-admin', "_blank");
+                    window.open(
+                        "https://github.com/dddggg123/vue3-ts-vite-admin",
+                        "_blank"
+                    );
                     break;
             }
         };

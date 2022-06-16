@@ -2,8 +2,7 @@
   <div class="other-container">这里是图书详情</div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 .other-container {

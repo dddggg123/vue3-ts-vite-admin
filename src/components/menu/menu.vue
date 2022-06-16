@@ -62,7 +62,7 @@ export default defineComponent({
         let router = useRouter();
         let navigateToRoute = (name: string) => {
             router.push({
-                name
+                name,
             });
         };
         let state = reactive({

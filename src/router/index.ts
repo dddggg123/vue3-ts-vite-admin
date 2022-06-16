@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import store from "../store/index";
 import permissionList from "@/utils/router-permission";
 
-const routes: Array<RouteRecordRaw> = [
+const CommonRoutes: Array<RouteRecordRaw> = [
 	{
 		path: "/login",
 		name: "login",
@@ -12,62 +12,6 @@ const routes: Array<RouteRecordRaw> = [
 		},
 	},
 ];
-
-const router = createRouter({
-	history: createWebHistory(),
-	routes,
-});
-
-router.beforeEach((to: any, _from: any, next: any) => {
-	//未登录执行逻辑
-	if (!window.localStorage.getItem("token") && to.path !== "/login") {
-		return next({ path: "/login" });
-	}
-	//已登录执行逻辑
-	if (window.localStorage.getItem("token") && to.path == "/login") {
-		return next();
-	}
-	//重新加载动态路由
-	if (!store.state.permissionList.length && to.path != "/login") {
-		const routerArr: Array<object> =
-			window.localStorage.getItem("permission") == "adminer"
-				? permissionList
-				: [];
-		// router.removeRoute('router');
-		return store.dispatch("FETCH_PERMISSION", routerArr).then(() => {
-			next({ path: "/home" });
-		});
-	} else {
-		console.log("我执行了，跳转路径:" + to.path);
-		next();
-	}
-});
-
-router.afterEach((to: any, from: any, _next: any) => {
-	try {
-		//设置标题
-		if (to.meta.name) {
-			document.title = to.meta.name;
-		}
-	} catch (err) {}
-	const arr = to.matched;
-	let routerList = [...arr];
-	// console.log(from);
-	// console.log(to);
-	routerList = routerList.splice(1);
-	if (to.meta.hide) {
-		routerList.unshift(from);
-		//顶部面包屑
-		store.commit("SET_CRUMB_LIST", routerList);
-		//目前左边导航选中的active
-		// store.commit("SET_CURRENT_MENU", to.name);
-	} else {
-		//顶部面包屑
-		store.commit("SET_CRUMB_LIST", routerList);
-		//目前左边导航选中的active
-		store.commit("SET_CURRENT_MENU", to.name);
-	}
-});
 
 export const DynamicRoutes = [
 	{
@@ -220,5 +164,76 @@ export const DynamicRoutes = [
 		],
 	},
 ];
+
+const routes: Array<RouteRecordRaw> = [...DynamicRoutes, ...CommonRoutes];
+
+const router = createRouter({
+	history: createWebHistory(),
+	routes,
+});
+
+router.beforeEach((to: any, _from: any, next: any) => {
+	//未登录执行逻辑
+	if (!window.localStorage.getItem("token") && to.path !== "/login") {
+		return next({ path: "/login" });
+	}
+	//已登录执行逻辑
+	if (window.localStorage.getItem("token") && to.path == "/login") {
+		return next();
+	}
+	//重新加载动态路由
+	if (!store.state.permissionList.length && to.path != "/login") {
+		const routerArr: Array<object> =
+			window.localStorage.getItem("permission") == "adminer"
+				? permissionList
+				: [];
+		// router.removeRoute('router');
+		return store.dispatch("FETCH_PERMISSION", routerArr).then(() => {
+			next({ path: "/home" });
+		});
+	} else {
+		next();
+	}
+});
+
+// 这里简化路由对象 只取需要的字段
+type CrumbObj = {
+	name: string;
+	meta: {
+		name: string;
+	};
+};
+
+router.afterEach((to: any, from: any, _next: any) => {
+	try {
+		//设置标题
+		if (to.meta.name) {
+			document.title = to.meta.name;
+		}
+	} catch (err) {}
+	const arr = to.meta.hide ? [to, from] : to.matched;
+	let routerList = [] as Array<CrumbObj>;
+	arr.forEach((item: any) => {
+		let obj: CrumbObj = {
+			name: item.name,
+			meta: {
+				name: item.meta.name,
+			},
+		};
+		routerList.push(obj);
+	});
+	if (to.meta.hide) {
+		//顶部面包屑
+		store.commit("SET_CRUMB_LIST", routerList);
+		//目前左边导航选中的active
+		// store.commit("SET_CURRENT_MENU", to.name);
+	} else {
+		routerList = routerList.splice(1);
+		//顶部面包屑
+		store.commit("SET_CRUMB_LIST", routerList);
+		//目前左边导航选中的active
+		store.commit("SET_CURRENT_MENU", to.name);
+	}
+});
 
 export default router;

@@ -13,15 +13,15 @@ import language from "../src/utils/language";
 import "./actions";
 
 const international = createI18n({
-	locale: "zh-CN", //默认显示的语言
-	messages: language,
+  locale: "zh-CN", //默认显示的语言
+  messages: language,
 });
 // 注册微应用
 // const app = registerMicroApps(apps)
 
 const app = createApp(App);
 for (const name in ElIcons) {
-	app.component(name, (ElIcons as any)[name]);
+  app.component(name, (ElIcons as any)[name]);
 }
 
 app.use(store).use(router).use(international).use(ElementPlus).mount("#app");

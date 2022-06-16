@@ -21,8 +21,7 @@ export default defineComponent({
         let state = reactive({
             sidebarMenu: computed(() => store.getters.getMenu),
         });
-        onMounted(() => {
-        });
+        onMounted(() => { });
         return {
             state,
         };

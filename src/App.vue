@@ -8,22 +8,21 @@ import actions from "./actions";
 import apps from "./micro-app";
 
 const user = {
-    name: "wang",
+  name: "wang",
 };
 
 actions.onGlobalStateChange((state) => {
-    console.log("main onGlobalStateChange", state);
+  console.log("main onGlobalStateChange", state);
 });
 
 actions.setGlobalState(user);
 registerMicroApps(apps);
 
 start({
-    sandbox: {
-        experimentalStyleIsolation: true,
-    },
+  sandbox: {
+    experimentalStyleIsolation: true,
+  },
 });
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
