@@ -23,9 +23,28 @@
 - 国际化、动态路由、富文本编辑器等
 
 ### 使用说明
+```
+# 克隆项目
+git clone https://gitee.com/xiaoxiang_reincarnation/vue3-ts-vite-admin.git
 
-- npm install
-- npm run dev
+或者
+
+git clone https://github.com/dddggg123/vue3-ts-vite-admin.git
+
+# 进入项目
+cd vue3-ts-vite-admin
+
+# 安装依赖
+npm install
+
+# 运行项目
+npm run dev
+
+# 打包发布
+npm run build
+```
+
+
 
 ### 联系作者
 

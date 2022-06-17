@@ -211,7 +211,7 @@ router.afterEach((to: any, from: any, _next: any) => {
 			document.title = to.meta.name;
 		}
 	} catch (err) {}
-	const arr = to.meta.hide ? [to, from] : to.matched;
+	const arr = to.meta.hide ? [from, to] : to.matched;
 	let routerList = [] as Array<CrumbObj>;
 	arr.forEach((item: any) => {
 		let obj: CrumbObj = {

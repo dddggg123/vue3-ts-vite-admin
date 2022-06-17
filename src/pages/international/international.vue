@@ -91,7 +91,7 @@ export default defineComponent({
       height: 40px;
       border: none;
       font-size: 16px;
-      border-radius: 10px;
+      border-radius: 5px;
 
       &:first-child {
         margin-left: 0;
