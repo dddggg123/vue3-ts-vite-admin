@@ -5,7 +5,11 @@
       <p class="desc">
         本项目集成了Vue3、qiankun（微前端）、国际化、动态路由等技术，完全开源免费帮您快速搭建Saas管理后台！
       </p>
-      <img class="login-bg" src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/vue3-ts-vite-admin/login_bg.png" alt="" />
+      <img
+        class="login-bg"
+        src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/vue3-ts-vite-admin/login_bg.png"
+        alt=""
+      />
     </div>
     <div class="login-section">
       <el-tabs
@@ -99,7 +103,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="footer-section">
-        <span class="version">{{ $t("版本号") }}：1.0.22061701</span>
+        <span class="version"> {{ $t("版本号") }}:1.0.22062101 </span>
       </div>
     </div>
     <div class="record-section">

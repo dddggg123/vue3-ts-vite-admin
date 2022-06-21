@@ -6,18 +6,28 @@
         <p class="reamrk-desc">1、推荐一个好用的国产富文本编辑器 wangEditor</p>
         <p class="reamrk-desc">
           2、更多参数配置和功能请参考<a
-            style="margin-left: 5px" target="_blank"
-            href="https://www.wangeditor.com/">相关文档</a>
+            style="margin-left: 5px"
+            target="_blank"
+            href="https://www.wangeditor.com/"
+            >相关文档</a
+          >
         </p>
       </div>
     </div>
     <div class="edtior-content">
       <Toolbar
-        style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig"
-        :mode="mode" />
+        style="border-bottom: 1px solid #ccc"
+        :editor="editorRef"
+        :defaultConfig="toolbarConfig"
+        :mode="mode"
+      />
       <Editor
-        style="height: 500px; overflow-y: hidden" v-model="valueHtml" :defaultConfig="editorConfig"
-        :mode="mode" @on-created="handleCreated" />
+        style="height: 500px; overflow-y: hidden"
+        v-model="valueHtml"
+        :defaultConfig="editorConfig"
+        :mode="mode"
+        @on-created="handleCreated"
+      />
     </div>
   </div>
 </template>
@@ -33,13 +43,13 @@ const mode = ref("default");
 const editorRef = shallowRef();
 
 // 内容 HTML
-const valueHtml = ref("<p>请输入内容</p>");
+const valueHtml = ref("");
 
 // 模拟 ajax 异步获取内容
 onMounted(() => {
-    // setTimeout(() => {
-    //     valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
-    // }, 1500)
+  // setTimeout(() => {
+  //     valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
+  // }, 1500)
 });
 
 const toolbarConfig = {};
@@ -47,44 +57,44 @@ const editorConfig = { placeholder: "请输入内容..." };
 
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
-    const editor = editorRef.value;
-    if (editor == null) return;
-    editor.destroy();
+  const editor = editorRef.value;
+  if (editor == null) return;
+  editor.destroy();
 });
 
 const handleCreated = (editor: any) => {
-    editorRef.value = editor; // 记录 editor 实例，重要！
+  editorRef.value = editor; // 记录 editor 实例，重要！
 };
 </script>
 
 <style lang="scss">
 .editor-container {
-    height: 100%;
+  height: 100%;
 
-    .remark-section {
-        margin-top: 20px;
-        padding: 0 5%;
+  .remark-section {
+    margin-top: 20px;
+    padding: 0 5%;
 
-        .remark-content {
-            text-align: left;
+    .remark-content {
+      text-align: left;
 
-            .remark-title {
-                font-size: 25px;
-                font-weight: 600;
-            }
+      .remark-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
 
-            .remark-desc {
-                font-size: 22px;
-                font-weight: 500;
-            }
-        }
+      .remark-desc {
+        font-size: 22px;
+        font-weight: 500;
+      }
     }
+  }
 
-    .edtior-content {
-        border: 1px solid #ccc;
-        margin: 0 auto;
-        margin-top: 20px;
-        width: 90%;
-    }
+  .edtior-content {
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 90%;
+  }
 }
 </style>

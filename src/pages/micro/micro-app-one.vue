@@ -7,16 +7,16 @@
           1、微应用可以单独开发、单独部署、单独运行。<a
             target="_blank"
             href="http://www.xkxk.tech/micro/app-one#/"
-          >子应用1</a
+            >子应用1</a
           >、<a target="_blank" href="http://www.xkxk.tech/micro/app-two#/"
-          >子应用2</a
+            >子应用2</a
           >
         </p>
         <p class="reamrk-desc">
           2、本项目微前端框架采用的是qiankun。<a
             target="_blank"
             href="https://qiankun.umijs.org/zh/guide"
-          >相关文档</a
+            >相关文档</a
           >
         </p>
       </div>
@@ -27,10 +27,10 @@
         <h1>主应用操作界面</h1>
         <!-- <el-button class="btn" @click="mainBtnHandler" type="primary">主应用控制子应用跳转</el-button> -->
         <el-button class="btn" @click="mainBtnHandlerWithParam1" type="primary"
-        >主应用控制子应用跳转并传参: Hello 采用localStorage
+          >主应用控制子应用跳转并传参: Hello 采用localStorage
         </el-button>
         <el-button class="btn" @click="mainBtnHandlerWithParam2" type="primary"
-        >主应用控制子应用跳转并传参: World! 采用sessionStorage
+          >主应用控制子应用跳转并传参: World! 采用sessionStorage
         </el-button>
       </div>
     </div>

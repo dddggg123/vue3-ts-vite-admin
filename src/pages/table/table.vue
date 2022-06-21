@@ -11,7 +11,7 @@
     </div>
     <div class="btn-section">
       <el-button class="btn" @click="exportExcelHandler" type="primary"
-      >导出excel</el-button
+        >导出excel</el-button
       >
       <!-- <el-button class="btn" @click="importExcelHandler" type="success">导入excel</el-button> -->
     </div>
@@ -50,10 +50,10 @@
       <el-table-column fixed="right" label="操作">
         <template #default>
           <el-button text size="small" @click="bookBtnHandler('detail')"
-          >详情</el-button
+            >详情</el-button
           >
           <el-button text size="small" @click="bookBtnHandler('modify')"
-          >编辑</el-button
+            >编辑</el-button
           >
         </template>
       </el-table-column>

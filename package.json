@@ -6,9 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "prettier:comment": "自动格式化当前目录下的所有文件",
-    "prettier": "prettier --write"
+    "lint:eslint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "lint:prettier":"npx prettier --write src/"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",

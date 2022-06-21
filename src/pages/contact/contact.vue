@@ -16,11 +16,19 @@
     </div>
     <div class="qrode-content">
       <div class="qrcode-section">
-        <img src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300" class="qrcode-img" alt="" />
+        <img
+          src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_wechat.jpg?imageView2/1/w/300/h/300"
+          class="qrcode-img"
+          alt=""
+        />
         <span class="qrcode-title">微信扫一扫添加好友</span>
       </div>
       <div class="qrcode-section">
-        <img src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300" class="qrcode-img" alt="" />
+        <img
+          src="https://xkxk-1253929253.cos.ap-shanghai.myqcloud.com/author/author_admire.jpg?imageView2/1/w/300/h/300"
+          class="qrcode-img"
+          alt=""
+        />
         <span class="qrcode-title">觉得不错赞赏一杯咖啡</span>
       </div>
     </div>
@@ -33,54 +41,54 @@ export default {};
 
 <style lang="scss">
 .contact-container {
-    width: 100%;
+  width: 100%;
 
-    .remark-section {
-        margin-top: 20px;
-        padding: 0 5%;
+  .remark-section {
+    margin-top: 20px;
+    padding: 0 5%;
 
-        .remark-content {
-            text-align: left;
+    .remark-content {
+      text-align: left;
 
-            .remark-title {
-                font-size: 25px;
-                font-weight: 600;
-            }
+      .remark-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
 
-            .remark-desc {
-                font-size: 22px;
-                font-weight: 500;
-            }
-        }
+      .remark-desc {
+        font-size: 22px;
+        font-weight: 500;
+      }
     }
+  }
 
-    .qrode-content {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0 5%;
+  .qrode-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 5%;
 
-        .qrcode-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    .qrcode-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-            &:last-child {
-                margin-left: 30px;
-            }
+      &:last-child {
+        margin-left: 30px;
+      }
 
-            .qrcode-img {
-                width: 200px;
-                height: 200px;
-            }
+      .qrcode-img {
+        width: 200px;
+        height: 200px;
+      }
 
-            .qrcode-title {
-                font-size: 18px;
-                font-weight: 600;
-                margin-top: 10px;
-            }
-        }
+      .qrcode-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
     }
+  }
 }
 </style>

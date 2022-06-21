@@ -32,7 +32,7 @@
           placeholder="输入传递信息"
         />
         <el-button type="primary" @click="postMsgHandler" class="post-btn"
-        >向iframe传值</el-button
+          >向iframe传值</el-button
         >
       </div>
     </div>

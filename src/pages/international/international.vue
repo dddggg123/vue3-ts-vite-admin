@@ -13,7 +13,7 @@
             target="_blank"
             style="margin-left: 10px"
             href="https://kazupon.github.io/vue-i18n/zh/started.html#html"
-          >https://kazupon.github.io/vue-i18n/zh/started.html#html</a
+            >https://kazupon.github.io/vue-i18n/zh/started.html#html</a
           >
         </p>
       </div>
